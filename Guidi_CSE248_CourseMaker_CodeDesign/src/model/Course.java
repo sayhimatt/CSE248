@@ -6,9 +6,9 @@ public class Course {
 	private String courseNumber;
 	private String courseTitle;
 	private String courseDesc;
-	private int courseCredit;
-	private ArrayList<Course> prereq = new ArrayList<Course>();
-	public Course(String cN, String cT, String cD, int cc, ArrayList<Course> prereq) {
+	private double courseCredit;
+	private ArrayList<String> prereq = new ArrayList<String>();
+	public Course(String cN, String cT, String cD, double cc, ArrayList<String> prereq) {
 		this.courseNumber = cN;
 		this.courseTitle = cT;
 		this.courseDesc = cD;
@@ -24,20 +24,20 @@ public class Course {
 	public String getCourseDesc() {
 		return courseDesc;
 	}
-	public int getCourseCredit() {
+	public double getCourseCredit() {
 		return courseCredit;
 	}
-	public ArrayList<Course> getPrereq() {
+	public ArrayList<String> getPrereq() {
 		return prereq;
 	}
 	public String toString() {
 		String s = "";
-		s += this.getCourseNumber() + " " + this.getCourseTitle() + " ";
-		s += this.getCourseDesc() + " " + this.getCourseCredit();
+		s += this.getCourseNumber() + " " + this.getCourseTitle() + " \n";
+		s += this.getCourseDesc() + " \n" + this.getCourseCredit();
 		if(this.prereq.size() > 0) {
 		s += "\nprerequisite:\n";
 		for(int i = 0; i < this.prereq.size(); i++) {
-			s += this.prereq.get(i).getCourseNumber() + "\n";
+			s += this.prereq.get(i) + "\n";
 		}
 		}
 		return s;
