@@ -15,13 +15,13 @@ public class DataLoader {
 	private File fileToRead;
 	private BufferedReader input;
 	public DataLoader(String filePath){
-		
 		try {
-		this.fileToRead = new File(filePath);
-		FileReader r = new FileReader(filePath);
-		input = new BufferedReader(r);
+			this.fileToRead = new File(filePath);
+			FileReader r = new FileReader(filePath);
+			input = new BufferedReader(r);
 		}catch(FileNotFoundException e) {
-			System.out.println("You wrote the wrong file name.... moron!");
+			System.out.println("You wrote the wrong file name.... lol!");
+			System.exit(0);
 		}
 		
 	}
@@ -41,6 +41,7 @@ public class DataLoader {
 		if(cT == null) {
 			return null;
 		}else if(cT.compareTo("") == 0) {
+			System.out.println();
 			cT = readString();
 		}
 		if(cT.length() > 10) {

@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='GUIDI_CSE248_CourseMaker'

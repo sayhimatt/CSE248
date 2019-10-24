@@ -33,8 +33,7 @@ public class Main {
 		DataLoader dL = new DataLoader("data/Course_Inventory.txt");
 		int i = 0;
 		Course c;
-		while((i < 300))
-		{
+		do{
 			
 			
 			i++;
@@ -44,7 +43,8 @@ public class Main {
 			}
 			System.out.println(c.toString());
 			
-		}
+		}while(c != null);
+		System.out.println(i);
 	}
 	
 	

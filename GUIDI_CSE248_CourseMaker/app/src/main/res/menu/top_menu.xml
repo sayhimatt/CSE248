@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+
+        android:title="Year Selection/Insertion"
+
+        app:showAsAction="always">
+        <menu
+            android:id="@+id/year_list"
+            >
+            <item
+                android:id="@+id/year_2023"
+                android:title="2023"
+                android:visible="false">
+                <menu>
+                    <item
+                        android:id="@+id/summer_2023"
+                        android:title="Summer"></item>
+                    <item
+                        android:id="@+id/fall_2023"
+                        android:title="Fall"></item>
+                    <item
+                        android:id="@+id/spring_2023"
+                        android:title="Spring"></item>
+                </menu>
+            </item>
+            <item
+                android:id="@+id/year_2022"
+                android:title="2022"
+                android:visible="false">
+                <menu>
+                    <item
+                        android:id="@+id/summer_2022"
+                        android:title="Summer"></item>
+                    <item
+                        android:id="@+id/fall_2022"
+                        android:title="Fall"></item>
+                    <item
+                        android:id="@+id/spring_2022"
+                        android:title="Spring"></item>
+                </menu>
+            </item>
+            <item
+                android:id="@+id/year_2021"
+                android:title="2021"
+                android:visible="false">
+                <menu>
+                    <item
+                        android:id="@+id/summer_2021"
+                        android:title="Summer"></item>
+                    <item
+                        android:id="@+id/fall_2021"
+                        android:title="Fall"></item>
+                    <item
+                        android:id="@+id/spring_2021"
+                        android:title="Spring"></item>
+                </menu>
+            </item>
+            <item
+                android:id="@+id/year_2020"
+                android:title="2020"
+                >
+                <menu>
+                    <item
+                        android:id="@+id/summer_2020"
+                        android:title="Summer"
+                        >
+                    </item>
+                    <item
+                        android:id="@+id/fall_2020"
+                        android:title="Fall"
+                        >
+                    </item>
+                    <item
+                        android:id="@+id/spring_2020"
+                        android:title="Spring"
+                        >
+                    </item>
+                </menu>
+            </item>
+
+
+            <item
+                android:id="@+id/year_2019"
+                android:title="2019"
+                >
+                <menu>
+                    <item
+                    android:id="@+id/summer_2019"
+                    android:title="Summer"
+                    >
+                </item>
+                    <item
+                        android:id="@+id/fall_2019"
+                        android:title="Fall"
+                        >
+                    </item>
+                    <item
+                        android:id="@+id/spring_2019"
+                        android:title="Spring"
+                        >
+                    </item>
+                </menu>
+
+            </item>
+            <item
+                android:id="@+id/add_year"
+                android:title="Add Year"/>
+        </menu>
+
+    </item>
+
+
+
+
+</menu>
