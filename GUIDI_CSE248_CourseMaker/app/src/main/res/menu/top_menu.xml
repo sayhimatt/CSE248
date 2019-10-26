@@ -1,81 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-
-        android:title="Year Selection/Insertion"
-
-        app:showAsAction="always">
+        android:title="@string/year_selection_insertion"
+        app:showAsAction="ifRoom">
         <menu
             android:id="@+id/year_list"
             >
             <item
                 android:id="@+id/year_2023"
-                android:title="2023"
-                android:visible="false">
+                android:title="@string/_2023"
+                android:visible="false"
+                >
                 <menu>
                     <item
                         android:id="@+id/summer_2023"
-                        android:title="Summer"></item>
+                        android:tag="summer2023"
+                        android:title="@string/summer"/>
                     <item
                         android:id="@+id/fall_2023"
-                        android:title="Fall"></item>
+                        android:title="@string/fall"
+                        android:tag="fall2023"/>
                     <item
                         android:id="@+id/spring_2023"
-                        android:title="Spring"></item>
+                        android:title="@string/spring"
+                        android:tag="spring2023"/>
                 </menu>
             </item>
             <item
                 android:id="@+id/year_2022"
-                android:title="2022"
+                android:title="@string/_2022"
                 android:visible="false">
                 <menu>
                     <item
                         android:id="@+id/summer_2022"
-                        android:title="Summer"></item>
+                        android:title="@string/summer"
+                        ></item>
                     <item
                         android:id="@+id/fall_2022"
-                        android:title="Fall"></item>
+                        android:title="@string/fall"></item>
                     <item
                         android:id="@+id/spring_2022"
-                        android:title="Spring"></item>
+                        android:title="@string/spring"></item>
                 </menu>
             </item>
             <item
                 android:id="@+id/year_2021"
-                android:title="2021"
+                android:title="@string/_2021"
                 android:visible="false">
                 <menu>
                     <item
                         android:id="@+id/summer_2021"
-                        android:title="Summer"></item>
+                        android:title="@string/summer"></item>
                     <item
                         android:id="@+id/fall_2021"
-                        android:title="Fall"></item>
+                        android:title="@string/fall"></item>
                     <item
                         android:id="@+id/spring_2021"
-                        android:title="Spring"></item>
+                        android:title="@string/spring"></item>
                 </menu>
             </item>
             <item
                 android:id="@+id/year_2020"
-                android:title="2020"
+                android:title="@string/_2020"
                 >
                 <menu>
                     <item
                         android:id="@+id/summer_2020"
-                        android:title="Summer"
+                        android:title="@string/summer"
                         >
                     </item>
                     <item
                         android:id="@+id/fall_2020"
-                        android:title="Fall"
+                        android:title="@string/fall"
                         >
                     </item>
                     <item
                         android:id="@+id/spring_2020"
-                        android:title="Spring"
+                        android:title="@string/spring"
                         >
                     </item>
                 </menu>
@@ -84,22 +86,22 @@
 
             <item
                 android:id="@+id/year_2019"
-                android:title="2019"
+                android:title="@string/_2019"
                 >
                 <menu>
                     <item
                     android:id="@+id/summer_2019"
-                    android:title="Summer"
+                    android:title="@string/summer"
                     >
                 </item>
                     <item
                         android:id="@+id/fall_2019"
-                        android:title="Fall"
+                        android:title="@string/fall"
                         >
                     </item>
                     <item
                         android:id="@+id/spring_2019"
-                        android:title="Spring"
+                        android:title="@string/spring"
                         >
                     </item>
                 </menu>
@@ -107,12 +109,12 @@
             </item>
             <item
                 android:id="@+id/add_year"
-                android:title="Add Year"/>
+                android:title="@string/add_year"/>
         </menu>
 
     </item>
-
-
-
-
+    <item
+        android:menuCategory="container"
+        android:title="@string/subject_category"
+        app:showAsAction="always" />
 </menu>
