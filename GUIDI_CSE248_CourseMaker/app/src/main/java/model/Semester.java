@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Semester {
     private CourseBag semesterCourses;
     private String year;
@@ -9,19 +11,18 @@ public class Semester {
     public Semester(String year, String season){
         this.year = year;
         this.season = season;
-        this.semesterID = (4*Integer.parseInt(year));
+        this.semesterID = (3*Integer.parseInt(year));
 
         switch(season){
-            // So when you do (semesterID/4) the
-            // remainder 0.75 is Spring, 0.5 for Fall, and 0.25 for Summer
+            // So when you do (semesterID/3)
             case "Spring":
-                this.semesterID+=3;
-                break;
-            case "Fall":
                 this.semesterID+=2;
                 break;
-            case "Summer":
+            case "Fall":
                 this.semesterID+=1;
+                break;
+            case "Summer":
+                this.semesterID+=0;
 
         }
         semesterCourses = new CourseBag();
@@ -31,8 +32,41 @@ public class Semester {
         semesterCourses.addCourse(c);
         creditInSemester += c.getCourseCredit();
     }
-    public void removeCourseForSemester(String courseN){
+    public boolean hasCourse(String key){
+        if(semesterCourses.getValueFromBag(key) != null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public String getYear(){
+        return year;
+    }
+    public String getSeason(){
+        return season;
+    }
+    public CourseBag getTheSemestersCourses(){
+        return this.semesterCourses;
+    }
+    public double deletePreReq(String preReqCourse){
+        boolean deletedOne = false;
+        double creditsGone = 0;
+        for(Course c : semesterCourses.getHList().values()){
+            if(c.getPrereq().contains(preReqCourse)){
+                creditsGone += semesterCourses.removeCourse(c.getCourseNumber()).getCourseCredit();
+                deletedOne = true;
+
+            }
+        }
+        return creditsGone;
+    }
+    public ArrayList<String> removeCourseForSemester(String courseN){
+        ArrayList<String> preList = semesterCourses.getCourseByTitle(courseN).getPrereq();
         creditInSemester -= semesterCourses.removeCourse(courseN).getCourseCredit();
+        return preList;
+    }
+    public double getCreditInSemester(){
+        return creditInSemester;
     }
 
 

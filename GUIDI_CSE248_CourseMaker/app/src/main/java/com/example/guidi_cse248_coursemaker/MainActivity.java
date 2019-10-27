@@ -1,21 +1,21 @@
 package com.example.guidi_cse248_coursemaker;
 
-import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.TooltipCompat;
 
+import android.content.DialogInterface;
 import android.content.res.AssetManager;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -28,16 +28,18 @@ import java.util.TreeMap;
 
 import model.Course;
 import model.CourseBag;
+import model.SemesterBag;
 import util.DataLoader;
-
-import static android.graphics.Typeface.BOLD_ITALIC;
 
 public class MainActivity extends AppCompatActivity {
     private Menu mOver;
     private static int nY = 2;
     private final String COURSE_FILEPATH = "Course_Inventory.txt";
+
     private TreeMap<String, Course> courseListOrdered;
+    private int selectedSemester;
     private CourseBag cb;
+    private SemesterBag sb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         DataLoader dl = new DataLoader(is);
+        selectedSemester = 0;
         cb = new CourseBag();
+        sb = new SemesterBag();
         cb.loadData(dl);
     }
     @Override
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         outerContainer.setOrientation(LinearLayout.VERTICAL);
         if(courseSubject.equalsIgnoreCase("ALL")) {
             for (Course c : cb.getTList().values()) {
-                LinearLayout innerContainer = makeNewCourseToView(c);
+                LinearLayout innerContainer = makeViewForCourseSelection(c);
                 outerContainer.addView(innerContainer);
             }
         }else {
@@ -79,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 HashMap<String, Course> hM = cb.getHList();
                 if (hM.get(keyIndex) != null) {
                     Course c = hM.get(keyIndex);
-                    LinearLayout innerContainer = makeNewCourseToView(c);
+                    LinearLayout innerContainer = makeViewForCourseSelection(c);
                     outerContainer.addView(innerContainer);
                 }
             }
@@ -90,36 +94,113 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
+        TextView s = findViewById(R.id.semesterTop);
+        String season, year;
         switch(item.getItemId()){
             case R.id.summer_2019:
+                season = (String)item.getTitle();
+                year = "2019";
+                s.setText(season + " " + year);
+                selectedSemester = 0;
+                changeSemesterView();
                 return true;
             case R.id.fall_2019:
+                season = (String)item.getTitle();
+                year = "2019";
+                s.setText(season + " " + year);
+                selectedSemester = 1;
+                changeSemesterView();
                 return true;
             case R.id.spring_2019:
+                season = (String)item.getTitle();
+                year = "2019";
+                s.setText(season + " " + year);
+                selectedSemester = 2;
+                changeSemesterView();
                 return true;
             case R.id.summer_2020:
+                season = (String)item.getTitle();
+                year = "2020";
+                s.setText(season + " " + year);
+                selectedSemester = 3;
+                changeSemesterView();
                 return true;
             case R.id.fall_2020:
+                season = (String)item.getTitle();
+                year = "2020";
+                s.setText(season + " " + year);
+                selectedSemester = 4;
+                changeSemesterView();
                 return true;
             case R.id.spring_2020:
+                season = (String)item.getTitle();
+                year = "2020";
+                s.setText(season + " " + year);
+                selectedSemester = 5;
+                changeSemesterView();
                 return true;
             case R.id.summer_2021:
+                season = (String)item.getTitle();
+                year = "2021";
+                s.setText(season + " " + year);
+                selectedSemester = 6;
+                changeSemesterView();
                 return true;
             case R.id.fall_2021:
+                season = (String)item.getTitle();
+                year = "2021";
+                s.setText(season + " " + year);
+                selectedSemester = 7;
+                changeSemesterView();
                 return true;
             case R.id.spring_2021:
+                season = (String)item.getTitle();
+                year = "2021";
+                s.setText(season + " " + year);
+                selectedSemester = 8;
+                changeSemesterView();
                 return true;
             case R.id.summer_2022:
+                season = (String)item.getTitle();
+                year = "2022";
+                s.setText(season + " " + year);
+                selectedSemester = 9;
+                changeSemesterView();
                 return true;
             case R.id.fall_2022:
+                season = (String)item.getTitle();
+                year = "2022";
+                s.setText(season + " " + year);
+                selectedSemester = 10;
+                changeSemesterView();
                 return true;
             case R.id.spring_2022:
+                season = (String)item.getTitle();
+                year = "2022";
+                s.setText(season + " " + year);
+                selectedSemester = 11;
+                changeSemesterView();
                 return true;
             case R.id.summer_2023:
+                season = (String)item.getTitle();
+                year = "2023";
+                s.setText(season + " " + year);
+                selectedSemester = 12;
+                changeSemesterView();
                 return true;
             case R.id.fall_2023:
+                season = (String)item.getTitle();
+                year = "2023";
+                s.setText(season + " " + year);
+                selectedSemester = 13;
+                changeSemesterView();
                 return true;
             case R.id.spring_2023:
+                season = (String)item.getTitle();
+                year = "2023";
+                s.setText(season + " " + year);
+                selectedSemester = 14;
+                changeSemesterView();
                 return true;
             case R.id.allCourses_B:
                 displayByCategories("ALL",false);
@@ -129,6 +210,12 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.MAT_B:
                 displayByCategories("MAT",true);
+                return true;
+            case R.id.SCI_B:
+                displayByCategories("SCI",true);
+                return true;
+            case R.id.HUM_B:
+                displayByCategories("HUM",true);
                 return true;
             case R.id.ENG_B:
                 displayByCategories("ENG",true);
@@ -141,6 +228,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.PHE_B:
                 displayByCategories("PED", false);
+                return true;
+            case R.id.CUSTOM_B:
+                askForTextInput("Please enter the 3 letter course subject!");
                 return true;
             case R.id.add_year:
                 System.out.println(nY);
@@ -161,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-    public LinearLayout makeNewCourseToView(Course c){
+    public LinearLayout makeViewForCourseSelection(Course c){
         LinearLayout innerContainer = new LinearLayout(this);
         innerContainer.setOrientation(LinearLayout.HORIZONTAL);
         innerContainer.setPadding(20, 20, 20, 20);
@@ -177,7 +267,25 @@ public class MainActivity extends AppCompatActivity {
         addCourseB.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addCourseB.setClickable(false);
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage(c.getCourseTitle()+ "\n" + c.getCourseDesc() + "\n" + "Prereq Courses" + c.getPrereq().toString()
+                        ).setPositiveButton("Yep", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        if(sb.addCourse(sb.getSemester(selectedSemester).getYear(),
+                                sb.getSemester(selectedSemester).getSeason(), c)){
+                            addCourseB.setText("Added!");
+                            addCourseB.setBackgroundColor(Color.GREEN);
+                        }else{
+                            addCourseB.setText("Error 8(");
+                            addCourseB.setBackgroundColor(Color.RED);
+                        }
+                        changeSemesterView();
+                    }
+                }).setNegativeButton("Nope",null);
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         });
         addCourseB.setClickable(true);
@@ -185,6 +293,7 @@ public class MainActivity extends AppCompatActivity {
             addCourseB.setBackgroundColor(Color.GRAY);
             addCourseB.setText("N/A");
         }
+
 
         System.out.println(courseTitleTV.getText());
 
@@ -197,6 +306,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void insertCoursesCSE(CourseBag cb,String courseListForCSE){
         ArrayList<String> myListToOutput = new ArrayList<>();
+        TextView courseExtra = new TextView(this);
         switch(courseListForCSE){
             case "MAT":
                 myListToOutput = cb.getApprovedMathL();
@@ -206,6 +316,14 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "HIS":
                 myListToOutput = cb.getApprovedHisL();
+                courseExtra.setText(sb.getInfoOnHistory());
+                break;
+            case "SCI":
+                myListToOutput = cb.getApprovedSciL();
+                courseExtra.setText(sb.getInfoOnScience());
+                break;
+            case "HUM":
+                myListToOutput = cb.getApprovedHumL();
                 break;
             case "LANG":
                 myListToOutput = cb.getApprovedLangL();
@@ -220,11 +338,51 @@ public class MainActivity extends AppCompatActivity {
         for (String s : myListToOutput) {
             Course c = cb.getCourseByTitle(s);
             if(c != null) {
-                LinearLayout innerContainer = makeNewCourseToView(c);
+                LinearLayout innerContainer = makeViewForCourseSelection(c);
                 outerContainer.addView(innerContainer);
             }
         }
+       if(courseListForCSE == "SCI" || courseListForCSE == "HIS") {
+           outerContainer.addView(courseExtra);
+       }
         a.addView(outerContainer);
+    }
+    public void changeSemesterView(){
+        TextView semesterHeader = findViewById(R.id.semesterTop);
+        ScrollView sV = findViewById(R.id.semester_scroll);
+        CourseBag cbThisSemester = sb.getCourseBag(selectedSemester);
+        sV.removeAllViews();
+        LinearLayout outerContainer = new LinearLayout(this);
+        outerContainer.setOrientation(LinearLayout.VERTICAL);
+        for(Course c : cbThisSemester.getHList().values()) {
+            if(c != null) {
+                LinearLayout oneToAdd = makeViewForCourseSelection(c);
+                outerContainer.addView(oneToAdd);
+            }
+        }
+        String seasonS = sb.getSemester(selectedSemester).getSeason();
+        String yearS = sb.getSemester(selectedSemester).getYear();
+        semesterHeader.setText(seasonS + " " + yearS);
+        semesterHeader.append("\t Graduation possible? " + sb.isCanGraduate());
+        semesterHeader.append(" " + "\nCredits in semester: " + sb.getSemester(selectedSemester).getCreditInSemester() +  "\tCredits Overall: " + sb.getCreditsOverall());
+        sV.addView(outerContainer);
+    }
+    public void askForTextInput(String messageToAsk){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(messageToAsk);
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+
+        builder.setPositiveButton("SEARCH", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+               final String courseSubToSearch = input.getText().toString();
+               displayByCategories(courseSubToSearch, false);
+            }
+        });
+        builder.show();
+
     }
 
 }

@@ -50,7 +50,7 @@ public class DataLoader {
         }
         String cD = readString();
         ArrayList<String>pR = new ArrayList<String>();
-        int bI = cD.lastIndexOf("Prereq");
+        int bI = cD.lastIndexOf("Prerequisite:");
         if(bI != -1) {
             String temp = cD.substring(bI);
             int dI = temp.indexOf(".");

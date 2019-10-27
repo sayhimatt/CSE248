@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 public class Course {
     private String courseNumber;
+
     private String courseTitle;
     private String courseDesc;
     private double courseCredit;
-    private ArrayList<String> prereq = new ArrayList<String>();
+    private ArrayList<String> prereq;
     public Course(String cN, String cT, String cD, double cc, ArrayList<String> prereq) {
         this.courseNumber = cN;
         this.courseTitle = cT;

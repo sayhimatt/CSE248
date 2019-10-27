@@ -130,9 +130,15 @@
                 android:id="@+id/MAT_B"
                 android:title="@string/mathCSE_MAT" />
             <item
+                android:id="@+id/SCI_B"
+                android:title="@string/scienceCSE_SCI"/>
+            <item
                 android:id="@+id/ENG_B"
                 android:title="@string/englishCSE_ENG"
                 />
+            <item
+                android:id="@+id/HUM_B"
+                android:title="@string/humanities_HUM"/>
             <item
                 android:id="@+id/HIS_B"
                 android:title="@string/historyCSE_HIS"/>
@@ -142,8 +148,10 @@
             <item
                 android:id="@+id/PHE_B"
                 android:title="@string/gymCSE_PHE"/>
-
-
+            <item
+                android:id="@+id/CUSTOM_B"
+                android:title="Specific subject"
+                />
         </menu>
     </item>
     <item

@@ -21,11 +21,14 @@
 
     <!-- Class Categories to pick from -->
     <string name="computer_programming_cse">Computer Programming (CSE)</string>
-    <string name="humanities_HUM">Humanities (HUM)</string>
-    <string name="mathCSE_MAT">CSE req. Math</string>
-    <string name="englishCSE_ENG">CSE req. English</string>
+    <string name="humanities_HUM">Humanities courses</string>
+    <string name="mathCSE_MAT">Math for CSE</string>
+    <string name="scienceCSE_SCI">Science for CSE</string>
+    <string name="englishCSE_ENG">English for CSE</string>
     <string name="historyCSE_HIS">History for CSE</string>
     <string name="flangCSE_LANG">Langauge Class</string>
     <string name="gymCSE_PHE">Physical Education</string>
+    <string name="customSearch">Specific Subject</string>
+    <string name="please_select_a_semester">Please select a semester!</string>
 
 </resources>

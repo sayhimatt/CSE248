@@ -28,7 +28,9 @@ public class CourseBag {
             "IND101", "IND102", "IND123", "MUS101", "MUS206", "MUS210", "PHL101", "PHL104", "PHL105", "PHL107", "PHL111",
             "PHL112", "PHL113", "PHL201", "PHL202", "PHL211", "PHL212", "PHL213", "PHL214", "PHL215", "PHL293",
             "SPN175", "SPN176", "SPN222", "SPN224", "SPN225", "SPN226", "THR211", "THR212"));
-
+    private static final ArrayList<String> approvedSciL= new ArrayList<String>(Arrays.asList(
+            "BIO150", "BIO151", "CHE133","CHE134","PHY130","PHY132","PHY230","PHY232","PHY245","PHY246"
+    ));
     public CourseBag() {
         courseBag = new HashMap<String, Course>();
     }
@@ -43,6 +45,9 @@ public class CourseBag {
     }
     public HashMap<String, Course> getHList(){
         return this.courseBag;
+    }
+    public Course getValueFromBag(String key){
+        return this.courseBag.get(key);
     }
 
     public String giveCourseString(Course c){
@@ -63,6 +68,10 @@ public class CourseBag {
     public ArrayList<String> getApprovedHumL(){
         return approvedHumL;
     }
+    public static ArrayList<String> getApprovedSciL() {
+        return approvedSciL;
+    }
+
     public Course getCourseByTitle(String title){
         return courseBag.get(title);
     }
