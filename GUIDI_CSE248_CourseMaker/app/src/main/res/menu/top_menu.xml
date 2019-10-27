@@ -115,6 +115,39 @@
     </item>
     <item
         android:menuCategory="container"
+        android:id="@+id/subjectCategoryMenu"
         android:title="@string/subject_category"
-        app:showAsAction="always" />
+        app:showAsAction="always" >
+        <menu>
+
+            <item
+                android:id="@+id/allCourses_B"
+                android:title="@string/all_courses" />
+            <item
+                android:id="@+id/CSE_B"
+                android:title="@string/computer_programming_cse" />
+            <item
+                android:id="@+id/MAT_B"
+                android:title="@string/mathCSE_MAT" />
+            <item
+                android:id="@+id/ENG_B"
+                android:title="@string/englishCSE_ENG"
+                />
+            <item
+                android:id="@+id/HIS_B"
+                android:title="@string/historyCSE_HIS"/>
+            <item
+                android:id="@+id/LANG_B"
+                android:title="@string/flangCSE_LANG"/>
+            <item
+                android:id="@+id/PHE_B"
+                android:title="@string/gymCSE_PHE"/>
+
+
+        </menu>
+    </item>
+    <item
+        android:id="@+id/exportMenuItem"
+        android:title="@string/export"
+        app:showAsAction="never" />
 </menu>

@@ -165,7 +165,7 @@ Enables students to create and modify illustrations and scanned images. Students
 
 ART123
 Introduction to Commercial Art
-Familiarizes students with several areas of commercial design and techniques used in those fields. Advertising design, fashion illustration, interior design and textile/surface design are explored. Students are made aware of the possibilities of expanding their art into a commercial field. Advice given about the students continuing education and the preparation of a portfolio. (4 hrs. studio) No prerequisite. Offered on: G / 3 cr. hrs. 
+Familiarizes students with several areas of commercial design and techniques used in those fields. Advertising design, fashion illustration, interior design and textile/surface design are explored. Students are made aware of the possibilities of expanding their art into a commercial field. Advice given about the student¿s continuing education and the preparation of a portfolio. (4 hrs. studio) No prerequisite. Offered on: G / 3 cr. hrs. 
 3.0
 
 ART125
@@ -760,22 +760,22 @@ Independent study courses in biology may be available. See the online catalog fo
 
 BNR001
 Banner-Overview, Policies and Procedures
-BNR001 Banner  Overview, Policies and Procedures This course provides an overview of the Banner Finance System, with the focus on changes in policies and procedures that will provide users greater information on and control over their financial resources. This course is a given for all administrators and staff. 
+BNR001 Banner ¿ Overview, Policies and Procedures This course provides an overview of the Banner Finance System, with the focus on changes in policies and procedures that will provide users greater information on and control over their financial resources. This course is a given for all administrators and staff. 
 0.0
 
 BNR002
 Banner-Budget and Budget Management
-Banner # 002 Banner  Budget and Budget Management This course addresses the changes in the Colleges chart of account. It introduces all Banner users to the FOAPAL structure, the building block for all financial activity; the Banner budget structure, and budget transfer policies and procedures. This course is a must for all administrators and staff with budget management and purchasing responsibility. Enrollees should print out, review and bring to the course the attached document on Self-Service Banner- Finance, thats attached to the course (CRN) in which you enroll. Particular attention should be paid to pages 9-end. This is a hands-on course that will allow you to explore your budget, process transfers and execute inquiries to find out your budget is, what funds you have encumbered or reserved, what funds you have spent and how much you have left. 
+Banner # 002 Banner ¿ Budget and Budget Management This course addresses the changes in the College¿s chart of account. It introduces all Banner users to the FOAPAL structure, the building block for all financial activity; the Banner budget structure, and budget transfer policies and procedures. This course is a must for all administrators and staff with budget management and purchasing responsibility. Enrollees should print out, review and bring to the course the attached document on Self-Service Banner- Finance, that¿s attached to the course (CRN) in which you enroll. Particular attention should be paid to pages 9-end. This is a hands-on course that will allow you to explore your budget, process transfers and execute inquiries to find out your budget is, what funds you have encumbered or reserved, what funds you have spent and how much you have left. 
 0.0
 
 BNR003
 Banner-Direct purchases and Procurement (The Requisition Process)
-BNR003 Banner  Direct Purchases and Procurement (The Requisition Process) This course addresses how Banner handles the requisition portion of the purchasing process. It examines when you can make a direct purchase and how requisitions are entered. This courses is required for everyone who is involved in the purchasing process. Users will process requisitions in self-service Banner. To get a leg-up on the course, you are strongly encouraged to print out, review and bring to the course materials (with your notes and questions) on the Self-Service Banner- Finance document thats attached to the course when you register. Particular attention should be paid to pages 9-end. This is be a hands-on course, where you will initiate requisitions through their approval and submittal to the Colleges purchasing office, and track requisitions through the ordering receiving and payment process. A special course will be offered at a later date for super-users who process lengthy and very complex orders. 
+BNR003 Banner ¿ Direct Purchases and Procurement (The Requisition Process) This course addresses how Banner handles the requisition portion of the purchasing process. It examines when you can make a direct purchase and how requisitions are entered. This courses is required for everyone who is involved in the purchasing process. Users will process requisitions in self-service Banner. To get a leg-up on the course, you are strongly encouraged to print out, review and bring to the course materials (with your notes and questions) on the Self-Service Banner- Finance document that¿s attached to the course when you register. Particular attention should be paid to pages 9-end. This is be a hands-on course, where you will initiate requisitions through their approval and submittal to the College¿s purchasing office, and track requisitions through the ordering receiving and payment process. A special course will be offered at a later date for super-users who process lengthy and very complex orders. 
 0.0
 
 BNR004
 Banner-Vendor Set-up, Purchasing and Bidding and Payment Processing (INB)
-BNR004 Banner  Vendor Set up, Purchasing and Bidding, and Payment Processing (INB) This course is for campus business office and central business office staff (only). It covers functionality thats delivered by Internet Native Banner (INB), particularly taking requisitions from their submittal for approval to buyers for action to their completion as purchase orders, with a side-tangent through the bidding. It also covers receiving, payment processing and fixed-asset tagging. This specialized course will be offered in the Annex. 
+BNR004 Banner ¿ Vendor Set up, Purchasing and Bidding, and Payment Processing (INB) This course is for campus business office and central business office staff (only). It covers functionality that¿s delivered by Internet Native Banner (INB), particularly taking requisitions from their submittal for approval to buyers for action to their completion as purchase orders, with a side-tangent through the bidding. It also covers receiving, payment processing and fixed-asset tagging. This specialized course will be offered in the Annex. 
 0.0
 
 BUS101
@@ -840,7 +840,7 @@ Familiarizes business students with international business concepts and practice
 
 BUS150
 Cooperative Education in Business
-Cooperative Education is supervised on-the-job training directly related to a students academic major and career interest. Co-op students integrate classroom theory with practical work experience. Through a required weekly seminar, students receive instruction in employment communications and discuss work station learning experiences. Students must be available to work a minimum of 10 hours per week. Interested students should contact appropriate program coordinator on their campus for more information. Registration in this course requires that students purchase liability insurance through the college. Prerequisite: Completion of at least 24 credit hours (12 credits being in the business area, with the exception of CST students), minimum overall GPA of 2.5, and permission of appropriate co-op coordinator or Chair/Academic Dean. Offered on: A-E-G / 3 cr. hrs. 
+Cooperative Education is supervised on-the-job training directly related to a student¿s academic major and career interest. Co-op students integrate classroom theory with practical work experience. Through a required weekly seminar, students receive instruction in employment communications and discuss work station learning experiences. Students must be available to work a minimum of 10 hours per week. Interested students should contact appropriate program coordinator on their campus for more information. Registration in this course requires that students purchase liability insurance through the college. Prerequisite: Completion of at least 24 credit hours (12 credits being in the business area, with the exception of CST students), minimum overall GPA of 2.5, and permission of appropriate co-op coordinator or Chair/Academic Dean. Offered on: A-E-G / 3 cr. hrs. 
 3.0
 
 BUS201
@@ -870,7 +870,7 @@ Independent study courses in business may be available. See the online catalog f
 
 CDC111
 Chemical Dependency in American Society
-Comprehensive exploration of historical, pharmacological, social and psychological aspects of abuse of and addiction to substances by society. Explores societys attitudes and misconceptions about substance use and reviews current theories of addiction treatment and prevention for both addicts and significant others. No prerequisite. Offered on: A-E-G / 3 cr. hrs. 
+Comprehensive exploration of historical, pharmacological, social and psychological aspects of abuse of and addiction to substances by society. Explores society¿s attitudes and misconceptions about substance use and reviews current theories of addiction treatment and prevention for both addicts and significant others. No prerequisite. Offered on: A-E-G / 3 cr. hrs. 
 3.0
 
 CDC115
@@ -910,7 +910,7 @@ Development and implementation of the Vocational and Educational Treatment Plan 
 
 CDC246
 Advanced Techniques for Counseling the Chemically Dependent Client
-Advanced counseling and therapy concepts and techniques that apply to assessment, diagnosis and treatment modalities for addictions and for psychosocial conditions that may coexist with the chemical dependency condition. Also addresses collateral treatment concerns for significant other persons involved with the chemically dependent client as well as appropriate uses of supervision, peer support, professional affiliations, and continuing professional education for the practitioner. Working with health professionals on the treatment team emphasized. Prerequisite: CDC235. Offered on: G / 3 cr. hrs. 
+Advanced counseling and therapy concepts and techniques that apply to assessment, diagnosis and treatment modalities for addictions and for psychosocial conditions that may coexist with the chemical dependency condition. Also addresses collateral treatment concerns for ¿significant other¿ persons involved with the chemically dependent client as well as appropriate uses of supervision, peer support, professional affiliations, and continuing professional education for the practitioner. Working with health professionals on the treatment team emphasized. Prerequisite: CDC235. Offered on: G / 3 cr. hrs. 
 3.0
 
 CDC250
@@ -1430,7 +1430,7 @@ Explores career opportunities and challenges that exist in many areas of the hos
 
 CUL111
 Sanitation
-Latest developments and procedures for food safety and sanitation. Subjects include current governmental standards and emerging issues, contamination and foodborne illnesses, establishing food safety system, cleaning and sanitizing, accident prevention, sanitation regulations and food protection. Students also get training in implementing Hazard Analysis Critical Control Point (HACCP) system of food safety, the cutting edge system which is rapidly becoming industrys system-of-choice. Students currently employed in food service who complete this course receive a Suffolk County Food Manager's Certificate valid for three years. Offered on: E / 3 cr. hrs. 
+Latest developments and procedures for food safety and sanitation. Subjects include current governmental standards and emerging issues, contamination and foodborne illnesses, establishing food safety system, cleaning and sanitizing, accident prevention, sanitation regulations and food protection. Students also get training in implementing Hazard Analysis Critical Control Point (HACCP) system of food safety, the cutting edge system which is rapidly becoming industry¿s system-of-choice. Students currently employed in food service who complete this course receive a Suffolk County Food Manager's Certificate valid for three years. Offered on: E / 3 cr. hrs. 
 3.0
 
 CUL112
@@ -1475,7 +1475,7 @@ Explores development of traditional American cuisines which include melting pot 
 
 CUL212
 Savory French Cuisine
-Presents classic French preparation methods that have transformed worlds cuisines. Combines classical techniques with lighter, more simplistic and adaptable preparation methods needed for service in todays restaurant. Hands-on course in which recipe production, menu review and French terminology are discussed. Prerequisite: CUL114. Offered on: E / 1 cr. hr. 
+Presents classic French preparation methods that have transformed world¿s cuisines. Combines classical techniques with lighter, more simplistic and adaptable preparation methods needed for service in today¿s restaurant. Hands-on course in which recipe production, menu review and French terminology are discussed. Prerequisite: CUL114. Offered on: E / 1 cr. hr. 
 1.0
 
 CUL213
@@ -1515,7 +1515,7 @@ Supervised on-the-job training in establishment representative of hospitality in
 
 CUL250
 Hospitality Capstone Course
-Capstone course requiring students to apply theoretical and practical knowledge under an individualized faculty-supervised hospitality project. Project incorporates students specific areas of expertise, including culinary arts, recipe development, concept development, marketing strategies, beverage management and profitability analysis. Completed project to be thoroughly researched, written and presented orally both to faculty and students. Prerequisite: CUL112, CUL113, CUL116, CUL120, and CUL132. Offered on: E / 2 cr. hrs. 
+Capstone course requiring students to apply theoretical and practical knowledge under an individualized faculty-supervised hospitality project. Project incorporates students¿ specific areas of expertise, including culinary arts, recipe development, concept development, marketing strategies, beverage management and profitability analysis. Completed project to be thoroughly researched, written and presented orally both to faculty and students. Prerequisite: CUL112, CUL113, CUL116, CUL120, and CUL132. Offered on: E / 2 cr. hrs. 
 2.0
 
 CUL295
@@ -1965,7 +1965,7 @@ This workshop is to help students of English as a Second Language improve their 
 
 ENG009
 Basic English Skills
-Basic writing course for students who have difficulty organizing and expressing their thoughts clearly, who have problems with usage, or who simply lack much practice in writing. All students receive instruction in both developing and expressing ideas. Work on specific problems of spelling, punctuation and grammatical usage is drawn primarily from students own writings. Additional work on related exercises may be required. By placement. To be taken in the first semester. Graded on an S-W-U-R basis. Not applicable toward any degree or certificate. No prerequisite. Offered on: A-E-G / 3 cr. hrs. 
+Basic writing course for students who have difficulty organizing and expressing their thoughts clearly, who have problems with usage, or who simply lack much practice in writing. All students receive instruction in both developing and expressing ideas. Work on specific problems of spelling, punctuation and grammatical usage is drawn primarily from students¿ own writings. Additional work on related exercises may be required. By placement. To be taken in the first semester. Graded on an S-W-U-R basis. Not applicable toward any degree or certificate. No prerequisite. Offered on: A-E-G / 3 cr. hrs. 
 3.0
 
 ENG010
@@ -2140,7 +2140,7 @@ Study of American literature from end of the Civil War to the present, highlight
 
 ENG217
 Environmental Literature
-Focuses on literature that investigates humankinds relationships with natural world. Among writers whose works are considered are H.D. Thoreau, R. Carson, E. Abbey, A. Dillard, W. Berry, H. Beston, W. Heyen, A. Leopold and R. Nelson. Prerequisite: ENG101. Offered on: A-E-G / 3 cr. hrs. 
+Focuses on literature that investigates humankind¿s relationships with natural world. Among writers whose works are considered are H.D. Thoreau, R. Carson, E. Abbey, A. Dillard, W. Berry, H. Beston, W. Heyen, A. Leopold and R. Nelson. Prerequisite: ENG101. Offered on: A-E-G / 3 cr. hrs. 
 3.0
 
 ENG218
@@ -2205,7 +2205,7 @@ Continuation of application of Newtonian mechanics to particles and rigid bodies
 
 ENS233
 Electrical Engineering Circuit Analysis
-Introduction to electrical networks and devices in both DC and AC systems. Introduces analysis techniques such as Kerchiefs current and voltage laws, Ohms law, superposition reciprocity, Mesh and Nodal analysis, and Thevenin and Norton theorems. Components and circuits include resistors, capacitors, inductors, R-L, R-C and R-L-C circuits. Topics include sinusoidal steady-state response, resonance, positive real functions, power calculations, Fourier analysis, and transient analysis using Laplace Transforms. (3 hrs. lecture, 3 hrs. laboratory) Prerequisite: MAT142 and PHY130. Corequisites: MAT204 and PHY230. Offered on: A / 4 cr. hrs. 
+Introduction to electrical networks and devices in both DC and AC systems. Introduces analysis techniques such as Kerchief¿s current and voltage laws, Ohm¿s law, superposition reciprocity, Mesh and Nodal analysis, and Thevenin and Norton theorems. Components and circuits include resistors, capacitors, inductors, R-L, R-C and R-L-C circuits. Topics include sinusoidal steady-state response, resonance, positive real functions, power calculations, Fourier analysis, and transient analysis using Laplace Transforms. (3 hrs. lecture, 3 hrs. laboratory) Prerequisite: MAT142 and PHY130. Corequisites: MAT204 and PHY230. Offered on: A / 4 cr. hrs. 
 4.0
 
 ENV101
@@ -2755,7 +2755,7 @@ This course investigates the notion of gender within its cultural contexts and i
 
 HUM120
 Effect Think: Problem Solving, Reason & Compr
-Studies mental processes associated with sequential analytical thought. Focus of first part of course is thoughtful introspection. Classroom and text activities entailing verbal reasoning, analogical relationships, predicating patterns, and creative problem solving develop insight and understanding of ones own thought processes. Second part of course encourages thoughtful involvement with current controversy. Students learn analytical skills necessary for evaluation of controversial ideas presented from various perspectives in contemporary writing using journal articles, newspaper and magazine articles, editorials and essays. Note: Fulfills SUNY General Education Requirement for Humanities. No prerequisite. Offered on: E / 3 cr. hrs. 
+Studies mental processes associated with sequential analytical thought. Focus of first part of course is thoughtful introspection. Classroom and text activities entailing verbal reasoning, analogical relationships, predicating patterns, and creative problem solving develop insight and understanding of one¿s own thought processes. Second part of course encourages thoughtful involvement with current controversy. Students learn analytical skills necessary for evaluation of controversial ideas presented from various perspectives in contemporary writing using journal articles, newspaper and magazine articles, editorials and essays. Note: Fulfills SUNY General Education Requirement for Humanities. No prerequisite. Offered on: E / 3 cr. hrs. 
 3.0
 
 HUM121
@@ -3230,7 +3230,7 @@ Life in the oceans is studied against a background of its interaction with the p
 
 MAR111
 Marine Biology
-Populations of animals and plants inhabiting Long Islands intertidal and nearshore environments are studied. Special attention given to the biology and natural history of these organisms. Community relationships and effects of abiotic environment on coastal populations also emphasized. Note: Fulfills SUNY General Education Requirement for Natural Sciences. Prerequisite: MAT007 or equivalent. Offered on: A-E-G / 4 cr. hrs. 
+Populations of animals and plants inhabiting Long Island¿s intertidal and nearshore environments are studied. Special attention given to the biology and natural history of these organisms. Community relationships and effects of abiotic environment on coastal populations also emphasized. Note: Fulfills SUNY General Education Requirement for Natural Sciences. Prerequisite: MAT007 or equivalent. Offered on: A-E-G / 4 cr. hrs. 
 4.0
 
 MAR121
@@ -3350,7 +3350,7 @@ Concept of function introduced early and used throughout course. Topics include 
 
 MAT125
 Fundamentals of Precalculus II
-Concept of function used throughout course. Topics include trigonometric functions and inverses, identities and equations, laws of sines and cosines, DeMoivres Theorem and complex numbers, polar and parametric equations, systems of linear equations and inequalities, partial fractions and the conics. Notes: (1) Credit given for MAT125 or MAT126, but not both. Successful completion of both MAT124 and MAT125 is equivalent to MAT126 completion. (2) Fulfills SUNY General Education Requirement for Mathematics. Prerequisite: C or better in MAT124 or equivalent. Offered on: A-E-G / 4 cr. hrs. 
+Concept of function used throughout course. Topics include trigonometric functions and inverses, identities and equations, laws of sines and cosines, DeMoivre¿s Theorem and complex numbers, polar and parametric equations, systems of linear equations and inequalities, partial fractions and the conics. Notes: (1) Credit given for MAT125 or MAT126, but not both. Successful completion of both MAT124 and MAT125 is equivalent to MAT126 completion. (2) Fulfills SUNY General Education Requirement for Mathematics. Prerequisite: C or better in MAT124 or equivalent. Offered on: A-E-G / 4 cr. hrs. 
 4.0
 
 MAT126
@@ -4335,7 +4335,7 @@ Nature and structure of the reasoning process as found in basic fields of though
 
 PHL107
 Ethics
-Study of traditional and contemporary moral theories, along with consideration of some contemporary moral problems, designed to help develop students ability to assess moral judgments. Note: Fulfills SUNY General Education Requirement for Humanities. No prerequisite. Offered on: A-E-G / 3 cr. hrs. 
+Study of traditional and contemporary moral theories, along with consideration of some contemporary moral problems, designed to help develop student¿s ability to assess moral judgments. Note: Fulfills SUNY General Education Requirement for Humanities. No prerequisite. Offered on: A-E-G / 3 cr. hrs. 
 3.0
 
 PHL111
@@ -4430,7 +4430,7 @@ Basic course which acquaints ASEP students with some fundamental aspects of phys
 
 PHY112
 Technical Physics I
-Acquaints students in the Mechanical and Electrical Technology programs with fundamental aspects of physics. Study of Newtons Laws of Motion and their applications, principles of conservation of energy and momentum, and rotation and rotational dynamics. (3 hrs. lecture, 2 hrs. laboratory) Note: Fulfills SUNY General Education Requirement for Natural Sciences. Prerequisite: MAT112. Offered on: A-G / 4 cr. hrs. 
+Acquaints students in the Mechanical and Electrical Technology programs with fundamental aspects of physics. Study of Newton¿s Laws of Motion and their applications, principles of conservation of energy and momentum, and rotation and rotational dynamics. (3 hrs. lecture, 2 hrs. laboratory) Note: Fulfills SUNY General Education Requirement for Natural Sciences. Prerequisite: MAT112. Offered on: A-G / 4 cr. hrs. 
 4.0
 
 PHY115
@@ -4585,7 +4585,7 @@ Introduction to American political theory, and the concept of federalism. This c
 
 POL107
 World Politics
-Study of nation-state system and nations struggle for power; pursuit of self-interest through use of war and peace; search for national security, economic growth, international prestige and status; and management of conflicts between rich and poor nations. Contemporary approaches to study of world politics reviewed. Note: Fulfills SUNY General Education Requirement for Social Sciences and Other World Civilizations. No prerequisite. Offered on: A-E-G / 3 cr. hrs. 
+Study of nation-state system and nations¿ struggle for power; pursuit of self-interest through use of war and peace; search for national security, economic growth, international prestige and status; and management of conflicts between rich and poor nations. Contemporary approaches to study of world politics reviewed. Note: Fulfills SUNY General Education Requirement for Social Sciences and Other World Civilizations. No prerequisite. Offered on: A-E-G / 3 cr. hrs. 
 3.0
 
 POL109
@@ -5360,7 +5360,7 @@ Independent study courses in veterinary science may be available. See the online
 
 WST112
 Women's Seminar
-Required for but not restricted to Women's Studies students. Students who successfully complete WST112 have satisfied the COL101, Freshman Seminar, requirement. A small group of participants, some beginning the college experience after being away from the classroom and some already in college, meet once a week. A Womens Studies faculty member, with input from the continuing students, provides an orientation to college life (such as resources available on campus, reading, taking notes, test taking and course selection as examples) for the new returning students. Then the class and instructor select topics for discussion which include, but are not limited to, balancing college and family life, stress management, self-esteem, and women's issues such as violence against women, women and the media, women and their bodies, and relationships. Course helps students in their current college experience and in preparation for the future. No prerequisite. Offered on: A-E / 1.5 cr. hrs. 
+Required for but not restricted to Women's Studies students. Students who successfully complete WST112 have satisfied the COL101, Freshman Seminar, requirement. A small group of participants, some beginning the college experience after being away from the classroom and some already in college, meet once a week. A Women¿s Studies faculty member, with input from the continuing students, provides an orientation to college life (such as resources available on campus, reading, taking notes, test taking and course selection as examples) for the new returning students. Then the class and instructor select topics for discussion which include, but are not limited to, balancing college and family life, stress management, self-esteem, and women's issues such as violence against women, women and the media, women and their bodies, and relationships. Course helps students in their current college experience and in preparation for the future. No prerequisite. Offered on: A-E / 1.5 cr. hrs. 
 1.5
 
 WST116
@@ -5830,12 +5830,12 @@ Learn the basics of container gardening to add beauty and interest to your lands
 
 XBO116
 Lawn Care
-Learn the basics of improving and maintaining your lawnscape and how to develop a seasonal schedule. Topics include soil preparation, selection of grass types, fertilization, and irrigation. (1 meeting) 
+Learn the basics of improving and maintaining your ¿lawnscape¿ and how to develop a seasonal schedule. Topics include soil preparation, selection of grass types, fertilization, and irrigation. (1 meeting) 
 0.0
 
 XBO117
 Introduction to Culinary Herbs
-Using the Botanical Centers greenhouse as a living laboratory, we will work with dozens of interesting fresh herbs and learn about their practical everyday use. We will learn to recognize the fragrance and taste of the herbs favored in the culinary arts. We will prepare herb teas and fragrant vinegar to take home. (1 meeting) 
+Using the Botanical Center¿s greenhouse as a living laboratory, we will work with dozens of interesting fresh herbs and learn about their practical everyday use. We will learn to recognize the fragrance and taste of the herbs favored in the culinary arts. We will prepare herb teas and fragrant vinegar to take home. (1 meeting) 
 0.0
 
 XBO118
@@ -5850,7 +5850,7 @@ A seasonal approach to learning about the Long Island natural environment. Join 
 
 XBO120
 Stretch your dollars at GC
-Learn how to spend wisely when looking for tools, soil and fertilizers, pots or plants. Specialty nurseries, big box store garden departments and everything in between will be covered. (1 meeting) 
+Learn how to spend wisely when looking for tools, soil and fertilizers, pots or plants. Specialty nurseries, ¿big box¿ store garden departments and everything in between will be covered. (1 meeting) 
 0.0
 
 XBO121
@@ -6095,27 +6095,27 @@ A hands-on learning experience for children in grades 1-3. Students will explore
 
 XCC134
 Shakespeare for Kids
-An innovative introduction to Shakespearean acting for high school students. Voice, text and physical dimensions will be emphasized through practice using several of Shakespeares works. All actors will receive a T-shirt. Lunch will be the responsibility of the camper. (8 meetings) 
+An innovative introduction to Shakespearean acting for high school students. Voice, text and physical dimensions will be emphasized through practice using several of Shakespeare¿s works. All actors will receive a T-shirt. Lunch will be the responsibility of the camper. (8 meetings) 
 0.0
 
 XCC200
 Kids Kitchen Grades 3-6
-Campers will learn basics of good nutrition and food preparation in both hot and cold kitchen labs, as well as the basics of baking and simple pastry arts. Led by a professionally trained instructor, each day will feature an appropriate combination of classroom lecture, demonstration, and hands-on learning in the kitchen and a little fun too! The program will include a field trip to a local farm where students will learn about organic farming and then use those products in the kitchen. In addition, students will prepare and serve their own lunch every day. The week will end with a student-prepared luncheon for invited parents/guests, where certificates and toques will be awarded. (5 Meetings) 
+Campers will learn basics of good nutrition and food preparation in both hot and cold kitchen labs, as well as the basics of baking and simple pastry arts. Led by a professionally trained instructor, each day will feature an appropriate combination of classroom lecture, demonstration, and hands-on learning in the kitchen ¿and a little fun too! The program will include a field trip to a local farm where students will learn about organic farming and then use those products in the kitchen. In addition, students will prepare and serve their own lunch every day. The week will end with a student-prepared luncheon for invited parents/guests, where certificates and ¿toques¿ will be awarded. (5 Meetings) 
 0.0
 
 XCC201
 Teen Chefs Grades 7-10
-Teens will learn basic nutrition through a tour of international cuisines, led by a professionally trained instructor. With two days in the hot/cold kitchen lab, and two days in the baking/pastry lab, students will gain the skills necessary to prepare an International Buffet for parents and invited guests on the last day of the camp. Each day will feature classroom lecture, demonstrations, hands-on learning and sample tastings of a wide variety of food products from around the world which will expand the palate of the burger-minded! The program will include a field trip to a local farm where students will learn about organic farming and then use those products in the kitchen. In addition, students will prepare and serve their own lunch every day. The week will end with a student-prepared luncheon for invited parents/guests, where certificates and toques will be awarded. (5 Meetings) 
+Teens will learn basic nutrition through a tour of international cuisines, led by a professionally trained instructor. With two days in the hot/cold kitchen lab, and two days in the baking/pastry lab, students will gain the skills necessary to prepare an International Buffet for parents and invited guests on the last day of the camp. Each day will feature classroom lecture, demonstrations, hands-on learning and sample tastings of a wide variety of food products from around the world which will expand the palate of the burger-minded! The program will include a field trip to a local farm where students will learn about organic farming and then use those products in the kitchen. In addition, students will prepare and serve their own lunch every day. The week will end with a student-prepared luncheon for invited parents/guests, where certificates and ¿toques¿ will be awarded. (5 Meetings) 
 0.0
 
 XCC202
 Advanced Kids in the Kitchen
-A continuatin of Kids in the Kitchen. Students will learn advanced food and pastry preparatin techniques. With two days in the hot/cold kitchen lab, and two days in the baking/pastry lab students will gain the skills necessary to prepare an international buffet for parents and invited guests on the last day of the camp. Each day will feature classroom lecture, demonstrations, hands-on learning and sample tastings of a wide variety of food products form around the world which will expand the palate of the burger-minded! In addition, students will prepare and serve their own lunch every day. The week will end with a student-prepared luncheon for invited parents/guests where certificates and toques will be awarded. 
+A continuatin of Kids in the Kitchen. Students will learn advanced food and pastry preparatin techniques. With two days in the hot/cold kitchen lab, and two days in the baking/pastry lab students will gain the skills necessary to prepare an international buffet for parents and invited guests on the last day of the camp. Each day will feature classroom lecture, demonstrations, hands-on learning and sample tastings of a wide variety of food products form around the world which will expand the palate of the burger-minded! In addition, students will prepare and serve their own lunch every day. The week will end with a student-prepared luncheon for invited parents/guests where certificates and ¿toques¿ will be awarded. 
 0.0
 
 XCC203
 Advanced Teens in the Kitchen
-A continuation of Kids in the Kitchen. Students will learn advanced food and pastry preparatin techniques. With two days in the hot/cold kitchen lab, and two days in the baking/pastry lab students will gain the skills necessary to prepare an international buffet for parents and invited guests on the last day of the camp. Each day will feature classroom lecture, demonstrations, hands-on learning and sample tastings of a wide variety of food products form around the world which will expand the palate of the burger-minded! In addition, students will prepare and serve their own lunch every day. The week will end with a student-prepared luncheon for invited parents/guests where certificates and toques will be awarded. 
+A continuation of Kids in the Kitchen. Students will learn advanced food and pastry preparatin techniques. With two days in the hot/cold kitchen lab, and two days in the baking/pastry lab students will gain the skills necessary to prepare an international buffet for parents and invited guests on the last day of the camp. Each day will feature classroom lecture, demonstrations, hands-on learning and sample tastings of a wide variety of food products form around the world which will expand the palate of the burger-minded! In addition, students will prepare and serve their own lunch every day. The week will end with a student-prepared luncheon for invited parents/guests where certificates and ¿toques¿ will be awarded. 
 0.0
 
 XCC204
@@ -6125,7 +6125,7 @@ An innovative 10-hour language program designed for upper elementary and middle 
 
 XCC205
 Cap Summer Dig Photo Grades 4-12
-Campers will learn to use a digital camera, Topics will include: exposure, focus, angles and perspective, composition, lenses and framing an image. Campers will download pictures and use Photoshop to alter, combine and enhance photographs. The sessions will include telling stories and expressing emotions through photography. Each camper will have an opportunity to complete a personalized project. Each camper must have a digital camera, a memory card and photo quality paper (50 sheets, 8.5 x 11) to bring to class. 
+Campers will learn to use a digital camera, Topics will include: exposure, focus, angles and perspective, composition, lenses and framing an image. Campers will download pictures and use Photoshop to alter, combine and enhance photographs. The sessions will include telling stories and expressing emotions through photography. Each camper will have an opportunity to complete a personalized project. Each camper must have a digital camera, a memory card and photo quality paper (50 sheets, 8.5¿ x 11¿) to bring to class. 
 0.0
 
 XCC400
@@ -6380,12 +6380,12 @@ Explore variations of this legendary dish of Spain with Chef Andrea Glick. In ad
 
 XCU182
 Japan: Bento Box Specialties
-Chef Andrea Glicks class for beginners, youll learn the basics such as cooking sushi rice and assembling fillings. The menu will include: Vegetable Tempura, Teriyaki Salmon, Pork Tonkatsu and Inside-Out roll with Tobiko and Clams steamed in Sake. ( 1 meeting ) 
+Chef Andrea Glick¿s class for beginners, you¿ll learn the basics such as cooking sushi rice and assembling fillings. The menu will include: Vegetable Tempura, Teriyaki Salmon, Pork Tonkatsu and Inside-Out roll with Tobiko and Clams steamed in Sake. ( 1 meeting ) 
 0.0
 
 XCU183
 More Thai Cooking
-Join Chef Andrea Glick on an exploration of the unique ingredients, simple techniques and delicious recipes of Thai cooking, one of the most distinctive of Southeast Asia. Youll learn to make authentic versions of some of the countrys most popular recipes, and then sit down to enjoy them. Youll make: Tom Kha Gai, Crispy Spring Rolls, Pan-Steamed Mussels with Thai Herbs and Mussaman Curry with Fragrant Jasmine Rice. ( 1 meeting ) 
+Join Chef Andrea Glick on an exploration of the unique ingredients, simple techniques and delicious recipes of Thai cooking, one of the most distinctive of Southeast Asia. You¿ll learn to make authentic versions of some of the country¿s most popular recipes, and then sit down to enjoy them. You¿ll make: Tom Kha Gai, Crispy Spring Rolls, Pan-Steamed Mussels with Thai Herbs and Mussaman Curry with Fragrant Jasmine Rice. ( 1 meeting ) 
 0.0
 
 XCU184
@@ -6395,7 +6395,7 @@ Learn with Chef Andrea Glick how to make your own special "night-in" feast. The 
 
 XCU185
 Couples Cook: Valentine Feast
-With Chef Andrea Glick, youll be guided through the steps to prepare a romantic dinner for Valentines Day. The menu will include: Chive and Cheddar Goughere, Shrimp Bisque, Herb Crusted Rack of Lamb with Potato Dauphinoise and Chocolate Soufflé with Raspberry Sauce. A class not to be missed. (1 meeting) 
+With Chef Andrea Glick, you¿ll be guided through the steps to prepare a romantic dinner for Valentine¿s Day. The menu will include: Chive and Cheddar Goughere, Shrimp Bisque, Herb Crusted Rack of Lamb with Potato Dauphinoise and Chocolate Soufflé with Raspberry Sauce. A class not to be missed. (1 meeting) 
 0.0
 
 XCU186
@@ -6425,7 +6425,7 @@ Fresh made dressings bring your salad to life. Prepare basic and inexpensive vin
 
 XCU191
 Farm-to-Table
-Using locally grown farm fresh ingredients, participants will learn to create shelf stable products including canned products that preserve the harvest. 
+Using locally grown farm fresh ingredients, participants will learn to create shelf stable products including canned products that ¿preserve the harvest. 
 0.0
 
 XCU192
@@ -6560,7 +6560,7 @@ Meets the training requirements of Chapter 544 of the Laws of New York, 1988, fo
 
 XED115
 Coaching
-There is more to sportsmanship than a handshake line at the end of a game and there is more to coaching than drills. This three-hour course will cover: establishing and maintaining civility; organizing and communicating; developing young athletes; reducing risk In a youth sports program; and putting players first. The program will consist of a three-hour classroom session and a follow-up Web-based session and an on-line exam. Upon successful completion of this program and exam, participants will receive certification as a SUNY Certified Youth Coach. (1 meeting) 
+There is more to sportsmanship than a handshake line at the end of a game and there is more to coaching than drills. This three-hour course will cover: establishing and maintaining civility; organizing and communicating; developing young athletes; reducing risk In a youth sports program; and putting players first. The program will consist of a three-hour classroom session and a follow-up Web-based session and an on-line exam. Upon successful completion of this program and exam, participants will receive certification as a ¿SUNY Certified Youth Coach.¿ (1 meeting) 
 0.0
 
 XED116
@@ -6655,7 +6655,7 @@ Prepares all prospective opticians to take the New York State Ophthalmic Dispens
 
 XEP114
 GRE Prep Course
-Familiarizes the student with the various aspects of the Graduate Record Examination (GRE). This course presents an overview of the structure of the test and the format of the questions. The review focuses on successful techniques for both the verbal and quantitative sections of the exam. Students will need to purchase Barron's How To Prepare For the GRE Test, with CD-ROM 16th Edition by Weiner Green and Wolf. Campus locations vary by semester. 
+Familiarizes the student with the various aspects of the Graduate Record Examination (GRE). This course presents an overview of the structure of the test and the format of the questions. The review focuses on successful techniques for both the verbal and quantitative sections of the exam. Students will need to purchase Barron's How To Prepare For the GRE¿ Test, with CD-ROM 16th Edition by Weiner Green and Wolf. Campus locations vary by semester. 
 0.0
 
 XEP115
@@ -6845,7 +6845,7 @@ If you plan to retire in five to ten years, it is now more important than ever b
 
 XFN167
 Retirement Reality Check
-Making the most of retirement means making sure youre ready. This means being ready financially, ready to live without a steady pay check and ready to manage money differently than you have done before. (1 meeting) 
+Making the most of retirement means making sure you¿re ready. This means being ready financially, ready to live without a steady pay check and ready to manage money differently than you have done before. (1 meeting) 
 0.0
 
 XFN191

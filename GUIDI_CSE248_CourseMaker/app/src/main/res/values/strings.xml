@@ -15,5 +15,17 @@
     <!-- Action Bar selection strings -->
     <string name="subject_category">Subject Category</string>
     <string name="year_selection_insertion">Year Selection</string>
+    <string name="export">Export</string>
+
+    <string name="all_courses">All Courses</string>
+
+    <!-- Class Categories to pick from -->
+    <string name="computer_programming_cse">Computer Programming (CSE)</string>
+    <string name="humanities_HUM">Humanities (HUM)</string>
+    <string name="mathCSE_MAT">CSE req. Math</string>
+    <string name="englishCSE_ENG">CSE req. English</string>
+    <string name="historyCSE_HIS">History for CSE</string>
+    <string name="flangCSE_LANG">Langauge Class</string>
+    <string name="gymCSE_PHE">Physical Education</string>
 
 </resources>

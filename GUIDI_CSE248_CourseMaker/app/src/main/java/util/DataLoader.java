@@ -45,6 +45,9 @@ public class DataLoader {
             return null;
         }
         String cN = readString();
+        if(cN == ""){
+            cN = "No course name :( Click for more info!";
+        }
         String cD = readString();
         ArrayList<String>pR = new ArrayList<String>();
         int bI = cD.lastIndexOf("Prereq");
