@@ -10,6 +10,8 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,9 +21,12 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -40,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private int selectedSemester;
     private CourseBag cb;
     private SemesterBag sb;
+    private LinearLayout allListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +59,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         DataLoader dl = new DataLoader(is);
-        selectedSemester = 0;
+        selectedSemester = 1;
         cb = new CourseBag();
-        sb = new SemesterBag();
+        sb = new SemesterBag(2023,3);
         cb.loadData(dl);
+        dl.closeScanner();
+        allListView = makeAllList(cb);
+        assumeAllRequirementsMade();
+        displayByCategories("ALL",false);
+        assignClasses();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -66,16 +77,23 @@ public class MainActivity extends AppCompatActivity {
         return true;
 
     }
+    public LinearLayout makeAllList(CourseBag cb){
+        LinearLayout outerContainer = new LinearLayout(this);
+        outerContainer.setOrientation(LinearLayout.VERTICAL);
+        for (Course c : cb.getTList().values()) {
+                LinearLayout innerContainer = makeViewForCourseSelection(c, false);
+                outerContainer.addView(innerContainer);
+        }
+        return outerContainer;
+    }
     public boolean insertCourses(CourseBag cb, String courseSubject){
+        courseSubject = courseSubject.toUpperCase();
         ScrollView a = (ScrollView)findViewById(R.id.scroll_view);
         a.removeAllViews();
         LinearLayout outerContainer = new LinearLayout(this);
         outerContainer.setOrientation(LinearLayout.VERTICAL);
         if(courseSubject.equalsIgnoreCase("ALL")) {
-            for (Course c : cb.getTList().values()) {
-                LinearLayout innerContainer = makeViewForCourseSelection(c);
-                outerContainer.addView(innerContainer);
-            }
+            outerContainer = this.allListView;
         }else {
             for (int i = 0; i < 999; i++) {
                 String cNum = String.format("%03d", i);
@@ -83,10 +101,17 @@ public class MainActivity extends AppCompatActivity {
                 HashMap<String, Course> hM = cb.getHList();
                 if (hM.get(keyIndex) != null) {
                     Course c = hM.get(keyIndex);
-                    LinearLayout innerContainer = makeViewForCourseSelection(c);
+                    LinearLayout innerContainer = makeViewForCourseSelection(c, false);
                     outerContainer.addView(innerContainer);
                 }
             }
+        }
+        if(outerContainer.getChildCount() <1 ){
+            TextView youScrewedUp = new TextView(this);
+            youScrewedUp.setGravity(Gravity.CENTER_HORIZONTAL);
+            youScrewedUp.setText("Oh no... you didn't look for the right thing!\nNOTHING came up!");
+            youScrewedUp.setTextSize(32);
+            outerContainer.addView(youScrewedUp);
         }
 
        a.addView(outerContainer);
@@ -202,6 +227,10 @@ public class MainActivity extends AppCompatActivity {
                 selectedSemester = 14;
                 changeSemesterView();
                 return true;
+            case R.id.transferC_B:
+                selectedSemester = -1;
+                changeSemesterView();
+                return true;
             case R.id.allCourses_B:
                 displayByCategories("ALL",false);
                 return true;
@@ -251,7 +280,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-    public LinearLayout makeViewForCourseSelection(Course c){
+    public LinearLayout makeViewForCourseSelection(Course c, boolean alreadyIn){
         LinearLayout innerContainer = new LinearLayout(this);
         innerContainer.setOrientation(LinearLayout.HORIZONTAL);
         innerContainer.setPadding(20, 20, 20, 20);
@@ -268,32 +297,57 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setMessage(c.getCourseTitle()+ "\n" + c.getCourseDesc() + "\n" + "Prereq Courses" + c.getPrereq().toString()
-                        ).setPositiveButton("Yep", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        if(sb.addCourse(sb.getSemester(selectedSemester).getYear(),
-                                sb.getSemester(selectedSemester).getSeason(), c)){
-                            addCourseB.setText("Added!");
-                            addCourseB.setBackgroundColor(Color.GREEN);
-                        }else{
-                            addCourseB.setText("Error 8(");
-                            addCourseB.setBackgroundColor(Color.RED);
-                        }
-                        changeSemesterView();
+                String messageOutput = c.getCourseTitle() + "\n\n" + c.getCourseDesc() + "\n\n" + "Prerequisites:\n";
+                if (c.getPrereq().size() > 0) {
+                    messageOutput += c.getPrereq().toString();
+                } else {
+                    messageOutput += "None!";
+                }
+                if (!alreadyIn) {
+                    if(selectedSemester <0){
+                        selectedSemester = 0;
                     }
-                }).setNegativeButton("Nope",null);
-                AlertDialog alert = builder.create();
-                alert.show();
+                    builder.setMessage(messageOutput).setPositiveButton("Add Course", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if ((sb.getSemester(selectedSemester).getCreditInSemester() + c.getCourseCredit()) > 21) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                builder.setMessage("You cannot add this course to this semester\n Too many credits!").setNeutralButton("Ok", null);
+                                AlertDialog unableToAddA = builder.create();
+                                unableToAddA.show();
+                            } else if (!(sb.isCourseBeingTaken(c.getCourseNumber())) &&
+                                    sb.addCourse(sb.getSemester(selectedSemester).getYear(),
+                                            sb.getSemester(selectedSemester).getSeason(), c)) {
+                            } else {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                builder.setMessage("You cannot add this course yet! \nPlease check for prerequisites \nor if you already added this  ....\nYou can read the description to check for what you need!").setNeutralButton("Ok", null);
+                                AlertDialog unableToAddA = builder.create();
+                                unableToAddA.show();
+                            }
+                            changeSemesterView();
+                        }
+                    }).setNegativeButton("Close", null);
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }else{
+                    builder.setMessage(messageOutput).setNegativeButton("Remove?", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if(selectedSemester == -1){
+                                sb.removeTransferCourse(c.getCourseNumber());
+
+                            }else{
+                                sb.removeCourse(c.getCourseNumber());
+                            }
+                            changeSemesterView();
+                        }
+                    }).setNeutralButton("Close",null);
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }
             }
         });
         addCourseB.setClickable(true);
-        if (!addCourseB.isClickable()) {
-            addCourseB.setBackgroundColor(Color.GRAY);
-            addCourseB.setText("N/A");
-        }
-
 
         System.out.println(courseTitleTV.getText());
 
@@ -309,24 +363,24 @@ public class MainActivity extends AppCompatActivity {
         TextView courseExtra = new TextView(this);
         switch(courseListForCSE){
             case "MAT":
-                myListToOutput = cb.getApprovedMathL();
+                myListToOutput = sb.getApprovedMathL();
                 break;
             case "ENG":
-                myListToOutput = cb.getApprovedEngL();
+                myListToOutput = sb.getApprovedEngL();
                 break;
             case "HIS":
-                myListToOutput = cb.getApprovedHisL();
+                myListToOutput = sb.getApprovedHisL();
                 courseExtra.setText(sb.getInfoOnHistory());
                 break;
             case "SCI":
-                myListToOutput = cb.getApprovedSciL();
+                myListToOutput = sb.getApprovedSciL();
                 courseExtra.setText(sb.getInfoOnScience());
                 break;
             case "HUM":
-                myListToOutput = cb.getApprovedHumL();
+                myListToOutput = sb.getApprovedHumL();
                 break;
             case "LANG":
-                myListToOutput = cb.getApprovedLangL();
+                myListToOutput = sb.getApprovedLangL();
                 break;
             default:
                 break;
@@ -338,7 +392,7 @@ public class MainActivity extends AppCompatActivity {
         for (String s : myListToOutput) {
             Course c = cb.getCourseByTitle(s);
             if(c != null) {
-                LinearLayout innerContainer = makeViewForCourseSelection(c);
+                LinearLayout innerContainer = makeViewForCourseSelection(c, false);
                 outerContainer.addView(innerContainer);
             }
         }
@@ -350,21 +404,37 @@ public class MainActivity extends AppCompatActivity {
     public void changeSemesterView(){
         TextView semesterHeader = findViewById(R.id.semesterTop);
         ScrollView sV = findViewById(R.id.semester_scroll);
-        CourseBag cbThisSemester = sb.getCourseBag(selectedSemester);
+        CourseBag cbThisSemester;
+        if(selectedSemester == -1){
+            cbThisSemester = sb.getTransferCourses();
+        }else {
+            cbThisSemester = sb.getCourseBag(selectedSemester);
+        }
         sV.removeAllViews();
         LinearLayout outerContainer = new LinearLayout(this);
         outerContainer.setOrientation(LinearLayout.VERTICAL);
-        for(Course c : cbThisSemester.getHList().values()) {
+        for(Course c : cbThisSemester.getTList().values()) {
             if(c != null) {
-                LinearLayout oneToAdd = makeViewForCourseSelection(c);
+                LinearLayout oneToAdd = makeViewForCourseSelection(c, true);
                 outerContainer.addView(oneToAdd);
             }
         }
-        String seasonS = sb.getSemester(selectedSemester).getSeason();
-        String yearS = sb.getSemester(selectedSemester).getYear();
-        semesterHeader.setText(seasonS + " " + yearS);
-        semesterHeader.append("\t Graduation possible? " + sb.isCanGraduate());
-        semesterHeader.append(" " + "\nCredits in semester: " + sb.getSemester(selectedSemester).getCreditInSemester() +  "\tCredits Overall: " + sb.getCreditsOverall());
+        String seasonS, yearS;
+        if(selectedSemester == -1){
+            semesterHeader.setText("Courses Transferred in");
+        }else {
+            seasonS = sb.getSemester(selectedSemester).getSeason();
+            yearS = sb.getSemester(selectedSemester).getYear();
+            semesterHeader.setText(seasonS + " " + yearS);
+            String cGrad;
+            if(sb.canIGraduate()){
+                cGrad = "Yes you can!";
+            }else{
+                cGrad = "Not yet!";
+            }
+            semesterHeader.append("\t Graduation possible? " + cGrad);
+            semesterHeader.append(" " + "\nCredits in semester: " + sb.getSemester(selectedSemester).getCreditInSemester() + "\tCredits Overall: " + sb.getCreditsOverall());
+        }
         sV.addView(outerContainer);
     }
     public void askForTextInput(String messageToAsk){
@@ -383,6 +453,79 @@ public class MainActivity extends AppCompatActivity {
         });
         builder.show();
 
+    }
+    public void assumeAllRequirementsMade(){
+        ArrayList<Course> assumedTakenClasses = new ArrayList<Course>();
+        String [] classesExpectedFromS0 = {"MAT111","MAT124","MAT125","MAT126","CHE100","CHE122","MAT101","RDG099","ESL012"};
+        for(int i = 0; i < classesExpectedFromS0.length; i++){
+            assumedTakenClasses.add(cb.getCourseByTitle(classesExpectedFromS0[i]));
+        }
+        for(Course c : assumedTakenClasses){
+            sb.addTransferCourse(c);
+        }
+    }
+    public void assignClasses(){
+        String [] semesterOne = {"CSE110", "CSE118", "ENG101", "MAT141", "CHE133"};
+        String [] semesterTwo = {"CSE148", "ENG102", "CHE134", "MAT142", "PED112"};
+        String [] semesterThree = {"CSE218", "HIS101", "ART101","PHY130", "PHY132", "MAT205"};
+        String [] semesterFour = {"CSE222", "CSE248", "MAT210", "ITL101", "HIS103", "PED113"};
+        for(int i = 0; i < semesterOne.length;i++){
+            sb.getSemester(1).insertCourseForSemester(cb.getCourseByTitle(semesterOne[i]));
+            sb.getSemester(2).insertCourseForSemester(cb.getCourseByTitle(semesterTwo[i]));
+        }
+        for(int i = 0; i < semesterThree.length;i++){
+            sb.getSemester(4).insertCourseForSemester(cb.getCourseByTitle(semesterThree[i]));
+            sb.getSemester(5).insertCourseForSemester(cb.getCourseByTitle(semesterFour[i]));
+        }
+        sb.recountCredits();
+        changeSemesterView();
+    }
+    public boolean transferCoursesPrompt(MenuItem item){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setMessage("Enter a course number of each transfer\nSeparate each course with a comma please");
+        selectedSemester = -1;
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+        builder.setPositiveButton("Insert", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                final String transferCourseList = input.getText().toString();
+                transferCourseList.trim();
+                transferCourseList.replaceAll(" ", "");
+                String listToDecrypt = transferCourseList.toUpperCase();
+                String [] t = listToDecrypt.split(",");
+                for(int i = 0; i < t.length; i++) {
+                    if(t[i].matches("[\\w]{3}[\\d]{3}")) {
+                        Course courseToAdd = cb.getCourseByTitle(t[i]);
+                        if(courseToAdd != null) {
+                            sb.addTransferCourse(courseToAdd);
+                        }
+                    }
+                }
+                changeSemesterView();
+
+            }
+        });
+        builder.show();
+
+        return true;
+    }
+    public boolean exportSchedule(MenuItem item){
+        try {
+            FileOutputStream fileout=openFileOutput("mytextfile.txt", MODE_PRIVATE);
+            OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
+            outputWriter.write(sb.toString());
+            outputWriter.close();
+
+            //display file saved message
+            Toast.makeText(getBaseContext(), "File saved successfully!" + getFilesDir(),
+                    Toast.LENGTH_LONG).show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
 }

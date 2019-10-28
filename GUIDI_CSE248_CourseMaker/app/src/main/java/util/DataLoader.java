@@ -50,7 +50,7 @@ public class DataLoader {
         }
         String cD = readString();
         ArrayList<String>pR = new ArrayList<String>();
-        int bI = cD.lastIndexOf("Prerequisite:");
+        int bI = cD.lastIndexOf("Prerequisites:");
         if(bI != -1) {
             String temp = cD.substring(bI);
             int dI = temp.indexOf(".");
@@ -78,5 +78,12 @@ public class DataLoader {
             e.printStackTrace();
         }
         return s;
+    }
+    public void closeScanner(){
+        try {
+            this.input.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -53,11 +53,15 @@ public class Semester {
         double creditsGone = 0;
         for(Course c : semesterCourses.getHList().values()){
             if(c.getPrereq().contains(preReqCourse)){
-                creditsGone += semesterCourses.removeCourse(c.getCourseNumber()).getCourseCredit();
+
+                creditsGone += c.getCourseCredit();
+                String courseNum = c.getCourseNumber();
+                semesterCourses.removeCourse(courseNum);
                 deletedOne = true;
 
             }
         }
+        creditInSemester -= creditsGone;
         return creditsGone;
     }
     public ArrayList<String> removeCourseForSemester(String courseN){
@@ -67,6 +71,15 @@ public class Semester {
     }
     public double getCreditInSemester(){
         return creditInSemester;
+    }
+    @Override
+    public String toString(){
+        String s = "\nYour classes for the " + getSeason() + " " + getYear() + " Semester are the following";
+        if(semesterCourses.getSize() ==0){
+            s += "\n You aren't taking anything for this semester!\n";
+        }
+        s += semesterCourses.toString();
+        return s;
     }
 
 

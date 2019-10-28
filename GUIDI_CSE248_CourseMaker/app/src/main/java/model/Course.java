@@ -32,15 +32,9 @@ public class Course {
         return prereq;
     }
     public String toString() {
-        String s = "";
-        s += this.getCourseNumber() + " " + this.getCourseTitle() + " \n";
-        s += this.getCourseDesc() + " \n" + this.getCourseCredit();
-        if(this.prereq.size() > 0) {
-            s += "\nprerequisite:\n";
-            for(int i = 0; i < this.prereq.size(); i++) {
-                s += this.prereq.get(i) + "\n";
-            }
-        }
+        String s = "\n";
+        s += this.getCourseNumber() + " " + this.getCourseTitle();
+        s += "\n";
         return s;
     }
 
