@@ -59,14 +59,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         DataLoader dl = new DataLoader(is);
-        selectedSemester = 1;
         cb = new CourseBag();
         sb = new SemesterBag(2023,3);
         cb.loadData(dl);
         dl.closeScanner();
         allListView = makeAllList(cb);
         assumeAllRequirementsMade();
-        displayByCategories("ALL",false);
+        //displayByCategories("ALL",false);
         assignClasses();
     }
     @Override
@@ -478,7 +477,7 @@ public class MainActivity extends AppCompatActivity {
             sb.getSemester(5).insertCourseForSemester(cb.getCourseByTitle(semesterFour[i]));
         }
         sb.recountCredits();
-        changeSemesterView();
+        //changeSemesterView();
     }
     public boolean transferCoursesPrompt(MenuItem item){
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);

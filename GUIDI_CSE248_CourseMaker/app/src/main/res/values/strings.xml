@@ -14,7 +14,7 @@
     <string name="spring">Spring</string>
     <!-- Action Bar selection strings -->
     <string name="subject_category">Subjects</string>
-    <string name="year_selection_insertion">Year Selection</string>
+    <string name="year_selection_insertion">Semester Selection</string>
     <string name="export">Export</string>
 
     <string name="all_courses">All Courses</string>
@@ -29,7 +29,7 @@
     <string name="flangCSE_LANG">Language Class</string>
     <string name="gymCSE_PHE">Physical Education</string>
     <string name="customSearch">Specific Subject</string>
-    <string name="please_select_a_semester">Please select a semester!</string>
+    <string name="please_select_a_semester">Courses you can view will be above here!\nPlease select a semester!\nCourses you added will appear below!</string>
     <string name="specific_subject">Specific subject</string>
     <string name="add_previously_taken_courses">Add previously taken courses</string>
     <string name="view_transfers">Transfers</string>
