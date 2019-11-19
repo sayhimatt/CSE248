@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">College Search App Project</string>
+    <string name="sign_in">Sign in!</string>
+    <string name="please_login_or_register_to_begin">Please Login or Register to begin!</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
 </resources>
