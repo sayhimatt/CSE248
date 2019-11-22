@@ -104,6 +104,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center_horizontal"
+                android:onClick="registerAccount"
                 android:text="@string/register_a_new_account"
                 android:textColor="#24b2d6"
                 android:textSize="24sp"
