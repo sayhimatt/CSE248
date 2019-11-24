@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "253649501516",
+    "firebase_url": "https://cse248-college-search-app.firebaseio.com",
+    "project_id": "cse248-college-search-app",
+    "storage_bucket": "cse248-college-search-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253649501516:android:f8aa99cbbb05f8280663e9",
+        "android_client_info": {
+          "package_name": "com.guidi.collegesearch.main"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253649501516-hb07cer4ssu02f0he61qou5irgegau0j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.guidi.collegesearch.main",
+            "certificate_hash": "96ce264f15178f609704723bdc9797a24869f68d"
+          }
+        },
+        {
+          "client_id": "253649501516-nru128gqu0e03iolhf1619lktg1o7aep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGLW3z7xyD8-RZg2XKLLo8Vt7MDQboZ48"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253649501516-nru128gqu0e03iolhf1619lktg1o7aep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

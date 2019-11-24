@@ -3,4 +3,6 @@
     <color name="colorPrimary">#3d1300</color>
     <color name="colorPrimaryDark">#00303d</color>
     <color name="colorAccent">#24b2d6</color>
+    <color name="mattColorBackground">#2C3D5AFE</color>
+    <color name="mattColorButton">#9A324D5C</color>
 </resources>

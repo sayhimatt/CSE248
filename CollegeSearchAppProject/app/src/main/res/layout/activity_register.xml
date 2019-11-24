@@ -2,10 +2,12 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:fillViewport="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="#2C3D5AFE"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:windowSoftInputMode="adjustPan|adjustResize">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,8 +19,6 @@
             android:id="@+id/register_image_view"
             android:layout_width="196dp"
             android:layout_height="172dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="100dp"
             app:layout_constraintBottom_toTopOf="@id/inner_registration_constraintl"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -28,18 +28,21 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/inner_registration_constraintl"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/register_image_view">
 
             <EditText
                 android:id="@+id/first_name_editText"
                 android:layout_width="470dp"
                 android:layout_height="50dp"
-                android:hint="First Name"
-                android:singleLine="true"
+                android:layout_margin="20dp"
                 android:gravity="center_horizontal"
+                android:hint="First Name"
+                android:inputType="textPersonName"
+                android:singleLine="true"
                 app:layout_constraintBottom_toTopOf="@id/last_name_editText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -50,11 +53,12 @@
                 android:id="@+id/last_name_editText"
                 android:layout_width="470dp"
                 android:layout_height="50dp"
+                android:layout_margin="20dp"
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:hint="Last Name"
-                android:singleLine="true"
                 android:inputType="textPersonName"
+                android:singleLine="true"
                 app:layout_constraintBottom_toTopOf="@+id/email_address_editText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +68,7 @@
                 android:id="@+id/email_address_editText"
                 android:layout_width="470dp"
                 android:layout_height="50dp"
+                android:layout_margin="20dp"
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:hint="@string/email_address"
@@ -78,10 +83,12 @@
                 android:id="@+id/password_one_editText"
                 android:layout_width="470dp"
                 android:layout_height="50dp"
+                android:layout_margin="20dp"
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:hint="Password"
                 android:inputType="textPassword"
+                app:layout_constraintBottom_toTopOf="@id/password_two_editText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/email_address_editText"
@@ -91,14 +98,47 @@
                 android:id="@+id/password_two_editText"
                 android:layout_width="470dp"
                 android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:hint="Password Confirmation"
                 android:inputType="textPassword"
+                app:layout_constraintBottom_toBottomOf="@id/inner_registration_constraintl"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/password_one_editText"
                 app:layout_constraintVertical_chainStyle="packed" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/password_two_editText">
+
+                <Button
+                    android:id="@+id/back_to_login_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/mattColorButton"
+                    android:backgroundTintMode="add"
+                    android:text="Back to Login"
+                    android:onClick="backToLogin"/>
+
+                <Button
+                    android:id="@+id/register_account_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/mattColorButton"
+                    android:text="Register" />
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
