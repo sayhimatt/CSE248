@@ -7,6 +7,7 @@
     android:background="#2C3D5AFE"
     android:fillViewport="true"
     android:orientation="vertical"
+    android:id="@+id/root_registration_view"
     android:windowSoftInputMode="adjustPan|adjustResize">
 
     <androidx.constraintlayout.widget.ConstraintLayout
