@@ -15,6 +15,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.guidi.collegesearch.main.R;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import static android.widget.Toast.makeText;
 
 public final class OnClickAssigner {
@@ -61,6 +64,11 @@ public final class OnClickAssigner {
                 String email = ((EditText)(rootV.findViewById(R.id.email_address_editText))).getText().toString();
                 String password = ((EditText)(rootV.findViewById(R.id.password_one_editText))).getText().toString();
                 String password2 = ((EditText)(rootV.findViewById(R.id.password_two_editText))).getText().toString();
+                String firstName = ((EditText)(rootV.findViewById(R.id.first_name_editText))).getText().toString();
+                String lastName = ((EditText)(rootV.findViewById(R.id.last_name_editText))).getText().toString();
+                
+                int satScore = Integer.parseInt(((EditText)(rootV.findViewById(R.id.sat_score_editText))).getText().toString().trim());
+                int actScore = Integer.parseInt(((EditText)(rootV.findViewById(R.id.act_score_editText))).getText().toString().trim());
                 if(password.equals(password2)) {
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -69,7 +77,10 @@ public final class OnClickAssigner {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("Test", "hello");
                             ToastyMatt.makeMToast(rootV, "It worked", true).show();
-                            //FirebaseUser user = mAuth.getCurrentUser();
+                            FirebaseUser user = mAuth.getCurrentUser();
+
+
+
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -81,6 +92,12 @@ public final class OnClickAssigner {
                         }
                     });
                 }
+
+                /*FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("users");
+                String id = cUser.getUid();
+                Account myAccount = new Account(new Username("sayhimatt@gmail.com"), "Tester122", "Guidi" );
+                myRef.child(id).setValue(myAccount);*/
             }
         });
     }

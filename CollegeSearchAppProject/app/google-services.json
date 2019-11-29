@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "253649501516-uclt83oi6a8sn41fmvp0ldo25d867584.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.guidi.collegesearch.main",
+            "certificate_hash": "66b551bbf787b08cccf06173e5a81eb98be9596a"
+          }
+        },
+        {
           "client_id": "253649501516-hb07cer4ssu02f0he61qou5irgegau0j.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
