@@ -1,5 +1,6 @@
 package util;
 
+import android.app.Activity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,23 +13,27 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.guidi.collegesearch.main.R;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import custom_views.mToast;
+import model.Account;
+import model.Username;
 
 import static android.widget.Toast.makeText;
 
 public final class OnClickAssigner {
     private static View rootV;
     private static FirebaseAuth mAuth;
-    public static void setOnClickAssigner(View overView, FirebaseAuth firebaseAuthentication){
+    private static Activity mainActivity;
+    public static void setOnClickAssigner(View overView, FirebaseAuth firebaseAuthentication, Activity mActivity){
         rootV = overView;
         mAuth = firebaseAuthentication;
+        mainActivity = mActivity;
     }
     public static void loginHandler(){
-        ImageButton loginB = rootV.findViewById(R.id.login_image_button);
+        ImageButton loginB = mainActivity.findViewById(R.id.login_image_button);
         loginB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,24 +46,27 @@ public final class OnClickAssigner {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         Log.d("Login Test", "signInWithEmail:success");
-                                        ToastyMatt.makeMToast(rootV, "Login successful", true).show();
+                                        mToast.mT(rootV, "Login successful", true);
+                                        mainActivity.setContentView(R.layout.activity_main);
                                     } else {
                                         Log.w("Login Test", "signInWithEmail:failure", task.getException());
-                                        ToastyMatt.makeMToast(rootV, "Sorry mate wrong login info", true).show();
+                                        mToast.mT(rootV, "Sorry mate wrong login info", true);
 
                                     }
                                 }
                             });
                 }catch(IllegalArgumentException e){
-                    ToastyMatt.makeMToast(rootV,
-                            "Sorry mate wrong login info\nAre you missing something?", true).show();
+                    mToast.mT(rootV,
+                            "Sorry mate wrong login info\nAre you missing something?", true);
                 }
 
             }
         });
     }
-    public static void registrationHandler(View v, Button rButton) {
-        rButton.setOnClickListener(new View.OnClickListener() {
+    public static void registrationHandler() {
+        Button rB = mainActivity.findViewById(R.id.register_account_button);
+        rB.setOnClickListener(new View.OnClickListener() {
+            boolean listener = false;
             @Override
             public void onClick(View v) {
                 String email = ((EditText)(rootV.findViewById(R.id.email_address_editText))).getText().toString();
@@ -66,40 +74,65 @@ public final class OnClickAssigner {
                 String password2 = ((EditText)(rootV.findViewById(R.id.password_two_editText))).getText().toString();
                 String firstName = ((EditText)(rootV.findViewById(R.id.first_name_editText))).getText().toString();
                 String lastName = ((EditText)(rootV.findViewById(R.id.last_name_editText))).getText().toString();
-                
-                int satScore = Integer.parseInt(((EditText)(rootV.findViewById(R.id.sat_score_editText))).getText().toString().trim());
-                int actScore = Integer.parseInt(((EditText)(rootV.findViewById(R.id.act_score_editText))).getText().toString().trim());
+                int satScore;
+                try {
+                    satScore = Integer.parseInt(((EditText) (rootV.findViewById(R.id.sat_score_editText))).getText().toString().trim());
+                }catch(NumberFormatException e){
+                    satScore = 0;
+                }
+                int actScore;
+                try {
+                    actScore = Integer.parseInt(((EditText) (rootV.findViewById(R.id.act_score_editText))).getText().toString().trim());
+                }catch(NumberFormatException e){
+                    actScore = 0;
+                }
+                if(email.equals("")){
+                    mToast.mT(v, "Fill in your Email\n ... moron", false);
+                }else if(password.equals("")){
+                    mToast.mT(v, "Write your desired password\n ... moron", false);
+                }else if(password2.equals("")){
+                    mToast.mT(v, "Confirm the password\n ... moron", false);
+                }else if(firstName.equals("")){
+                    mToast.mT(v,"Write your first name", false);
+                }else if(lastName.equals("")){
+                    mToast.mT(v,"Write your last name", false);
+                }
                 if(password.equals(password2)) {
+                    final Account myAccount = new Account(new Username(email), firstName, lastName);
+                    if(satScore != 0)
+                        myAccount.setSatScore(satScore);
+                    if(actScore != 0)
+                        myAccount.setActScore(actScore);
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d("Test", "hello");
-                            ToastyMatt.makeMToast(rootV, "It worked", true).show();
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-
+                            mToast.mT(rootV, "It worked", true);
+                            uploadUser(myAccount);
+                            mainActivity.setContentView(R.layout.activity_main);
 
 
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Log.d("Failure", "hello");
-                            ToastyMatt.makeMToast(rootV, "It failed", true).show();
+                            // If sign in fails, display a message to the user
+                            mToast.mT(rootV, task.getException().toString(), true);
+                            listener = false;
                         }
 
                         // ...
                         }
                     });
-                }
 
-                /*FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("users");
-                String id = cUser.getUid();
-                Account myAccount = new Account(new Username("sayhimatt@gmail.com"), "Tester122", "Guidi" );
-                myRef.child(id).setValue(myAccount);*/
+                }
+                Log.e("something happened", "HERE HERE AFTER");
             }
         });
+    }
+    private static void uploadUser(Account myAccount){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("users");
+        String id = mAuth.getCurrentUser().getUid();
+        myRef.child(id).setValue(myAccount);
     }
 
 }

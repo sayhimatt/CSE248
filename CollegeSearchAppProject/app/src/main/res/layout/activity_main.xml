@@ -4,15 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mattColorBackground"
+    android:padding="25dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <EditText
+        android:id="@+id/school_name_edittext"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Name of School"
+        android:inputType="textPersonName"
+        android:singleLine="true"
+        app:layout_constraintBottom_toTopOf="@id/select_state_spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/select_state_textview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="@string/select_a_state"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/zip_distance_spinner"
+        app:layout_constraintEnd_toStartOf="@id/select_state_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/school_name_edittext" />
+
+    <custom_views.CheckboxSpinner
+        android:id="@+id/select_state_spinner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:textAlignment="gravity"
+        app:layout_constraintBottom_toTopOf="@id/zip_distance_spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/select_state_textview"
+        app:layout_constraintTop_toBottomOf="@id/school_name_edittext">
+
+    </custom_views.CheckboxSpinner>
+
+    <EditText
+        android:id="@+id/zip_edittext"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:hint="from zip code"
+        android:inputType="number"
+        android:singleLine="true"
+        app:layout_constraintBottom_toTopOf="@id/select_major_spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/zip_distance_spinner"
+        app:layout_constraintTop_toBottomOf="@id/select_state_spinner" />
+
+    <Spinner
+        android:id="@+id/zip_distance_spinner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:entries="@array/miles_from_sa"
+        android:gravity="right"
+        app:layout_constraintBottom_toTopOf="@+id/select_major_spinner"
+        app:layout_constraintEnd_toStartOf="@id/zip_edittext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/select_state_spinner" />
+
+    <custom_views.CheckboxSpinner
+        android:id="@+id/select_major_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAlignment="gravity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/zip_edittext"></custom_views.CheckboxSpinner>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

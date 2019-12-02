@@ -1,12 +1,12 @@
-package util;
+package custom_views;
 
 import android.content.Context;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
-
-public final class ToastyMatt{
-    public static Toast makeMToast(View v, String message, boolean longTimer){
+// Matt's version of toast. Easier than ever.
+public final class mToast{
+    public static void mT(View v, String message, boolean longTimer){
         Toast t;
         Context c = v.getContext();
         if(longTimer){
@@ -15,6 +15,6 @@ public final class ToastyMatt{
             t = Toast.makeText(c, message, Toast.LENGTH_SHORT);
         }
         t.setGravity(Gravity.CENTER, 0,0);
-        return t;
+        t.show();
     }
 }

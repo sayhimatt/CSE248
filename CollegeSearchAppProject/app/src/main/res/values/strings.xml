@@ -7,4 +7,20 @@
     <string name="press_to_login">Press to login!</string>
     <string name="textview">TextView</string>
     <string name="register_a_new_account">Register a new account!</string>
+    <string name="select_a_state">Select a state!</string>
+
+
+
+    <string-array name="miles_from_sa">
+        <item>5 miles</item>
+        <item>10 miles</item>
+        <item>15 miles</item>
+        <item>20 miles</item>
+        <item>25 miles</item>
+        <item>50 miles</item>
+        <item>100 miles</item>
+        <item>150 miles</item>
+        <item>200 miles</item>
+        <item>250 miles</item>
+    </string-array>
 </resources>
