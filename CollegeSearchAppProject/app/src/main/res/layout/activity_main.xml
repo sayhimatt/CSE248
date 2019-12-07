@@ -77,9 +77,65 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textAlignment="gravity"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/award_textview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/zip_edittext"></custom_views.CheckboxSpinner>
+
+    <TextView
+        android:id="@+id/award_textview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center|center_vertical"
+        android:text="Level of Award"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/radioButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/select_major_spinner" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="RadioButton"
+        app:layout_constraintBottom_toTopOf="@id/radioButton3"
+        app:layout_constraintEnd_toStartOf="@id/radioButton2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/award_textview" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="RadioButton"
+        app:layout_constraintBottom_toTopOf="@id/radioButton3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/radioButton"
+        app:layout_constraintTop_toBottomOf="@id/award_textview" />
+
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="RadioButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/radioButton4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioButton" />
+
+    <RadioButton
+        android:id="@+id/radioButton4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="RadioButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/radioButton3"
+        app:layout_constraintTop_toBottomOf="@id/radioButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
