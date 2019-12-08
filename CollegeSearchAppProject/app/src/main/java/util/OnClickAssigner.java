@@ -99,10 +99,17 @@ public final class OnClickAssigner {
                 }
                 if(password.equals(password2)) {
                     final Account myAccount = new Account(new Username(email), firstName, lastName);
-                    if(satScore != 0)
+                    if(satScore != 0) {
                         myAccount.setSatScore(satScore);
-                    if(actScore != 0)
+                    }else{
+                        myAccount.setSatScore(1600);
+                    }
+                    if(actScore != 0){
                         myAccount.setActScore(actScore);
+                    }else{
+                        myAccount.setActScore(36);
+                    }
+
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {

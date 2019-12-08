@@ -15,22 +15,20 @@ public class Account  {
         this.lastName = lN;
     }
     public void setSatScore(int score){
-        if(score < MIN_SAT_SCORE){
+        this.satScore = score;
+        if(score < MIN_SAT_SCORE) {
             this.satScore = MIN_SAT_SCORE;
-        }else if(score > MAX_SAT_SCORE){
+        }else if(score > MAX_SAT_SCORE)
             this.satScore = MAX_SAT_SCORE;
-        }else{
-            this.satScore = score;
-        }
+
     }
     public void setActScore(int score){
+        this.actScore = score;
         if(score < MIN_ACT_SCORE){
             this.actScore = MIN_ACT_SCORE;
-        }else if(score > MAX_ACT_SCORE){
+        }else if(score > MAX_ACT_SCORE)
             this.actScore = MAX_ACT_SCORE;
-        }else{
-            this.actScore = score;
-        }
+
     }
     public String getUsername() {return username.getUsername();}
     public String getFirstName() { return firstName;}

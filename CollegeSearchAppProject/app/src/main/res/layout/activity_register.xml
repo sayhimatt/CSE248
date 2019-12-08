@@ -27,8 +27,8 @@
 
         <EditText
             android:id="@+id/first_name_editText"
-            android:layout_width="470dp"
-            android:layout_height="50dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:gravity="center_horizontal"
             android:hint="First Name"
@@ -41,7 +41,7 @@
 
         <EditText
             android:id="@+id/last_name_editText"
-            android:layout_width="470dp"
+            android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_margin="20dp"
             android:ems="10"
@@ -56,7 +56,7 @@
 
         <LinearLayout
             android:id="@+id/score_register_llayout"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="horizontal"
@@ -85,7 +85,7 @@
 
         <EditText
             android:id="@+id/email_address_editText"
-            android:layout_width="470dp"
+            android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_margin="20dp"
             android:gravity="center_horizontal"
@@ -99,7 +99,7 @@
 
         <EditText
             android:id="@+id/password_one_editText"
-            android:layout_width="470dp"
+            android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_margin="20dp"
             android:gravity="center_horizontal"
@@ -112,8 +112,9 @@
 
         <EditText
             android:id="@+id/password_two_editText"
-            android:layout_width="470dp"
+            android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_margin="20dp"
             android:gravity="center_horizontal"
             android:hint="Password Confirmation"
             android:inputType="textPassword"
