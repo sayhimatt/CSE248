@@ -10,7 +10,6 @@
     <string name="select_a_state">Select a state!</string>
 
 
-
     <string-array name="miles_from_sa">
         <item>5 miles</item>
         <item>10 miles</item>
@@ -23,4 +22,8 @@
         <item>200 miles</item>
         <item>250 miles</item>
     </string-array>
+    <string name="title_activity_general">generalA</string>
+    <string name="title_search">Search</string>
+    <string name="title_results">Results</string>
+    <string name="title_account">Account</string>
 </resources>

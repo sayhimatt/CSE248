@@ -47,7 +47,7 @@ public final class OnClickAssigner {
                                     if (task.isSuccessful()) {
                                         Log.d("Login Test", "signInWithEmail:success");
                                         mToast.mT(rootV, "Login successful", true);
-                                        mainActivity.setContentView(R.layout.activity_main);
+                                        mainActivity.setContentView(R.layout.activity_general);
                                     } else {
                                         Log.w("Login Test", "signInWithEmail:failure", task.getException());
                                         mToast.mT(rootV, "Sorry mate wrong login info", true);
@@ -117,7 +117,7 @@ public final class OnClickAssigner {
                             // Sign in success, update UI with the signed-in user's information
                             mToast.mT(rootV, "It worked", true);
                             uploadUser(myAccount);
-                            mainActivity.setContentView(R.layout.activity_main);
+                            mainActivity.setContentView(R.layout.activity_general);
 
 
                         } else {

@@ -2,49 +2,33 @@ package com.guidi.collegesearch.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Scanner;
-
-import custom_views.CheckboxSpinner;
-import custom_views.mToast;
-import model.Account;
 import model.School;
-import model.Username;
 import util.OnClickAssigner;
-import util.State;
 
 import static util.OnClickAssigner.loginHandler;
 import static util.OnClickAssigner.registrationHandler;
@@ -75,9 +59,11 @@ public class MainActivity extends AppCompatActivity {
         });
         if(mAuth.getCurrentUser() != null) {
             Log.d("whoAmISignedInAs?", mAuth.getCurrentUser().getEmail());
-            goToMainActivity(this.findViewById(R.id.main_login_linear_layout));
-
-            testQueue = Volley.newRequestQueue(this);
+            //goToMainActivity(this.findViewById(R.id.main_login_linear_layout));/*
+            //FirebaseDatabase database = FirebaseDatabase.getInstance();
+            //DatabaseReference myRef = database.getReference("schools");
+            //myRef.removeValue();*/
+            /*testQueue = Volley.newRequestQueue(this);
             getTotalPagesToParse();
             testQueue.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<Object>() {
                 @Override
@@ -98,7 +84,17 @@ public class MainActivity extends AppCompatActivity {
 
 
                 }
-            });
+            });*/
+            setContentView(R.layout.activity_general);
+            BottomNavigationView navView = findViewById(R.id.nav_view);
+            // Passing each menu ID as a set of Ids because each
+            // menu should be considered as top level destinations.
+            AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.navigation_search)
+                    .build();
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+            NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+            NavigationUI.setupWithNavController(navView, navController);
 
         }
 
@@ -106,32 +102,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    @Override
-    public void onDestroy(){
-        super.onDestroy();
-    }
-    @Override
-    public void onStart(){
-        super.onStart();
 
-
-
-    }
-    public void addStates(){
-        CheckboxSpinner stateSpinner = (CheckboxSpinner)findViewById(R.id.select_state_spinner);
-
-        ArrayAdapter<String> itemsAdapter =
-                new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, State.getStateNameList());
-        stateSpinner.setAdapter(itemsAdapter);
-        stateSpinner.setItems(State.getStateNameList());
-        stateSpinner.setSelection(State.values().length - 1);
-        stateSpinner.setPrompt("State:");
-    }
     public boolean goToMainActivity(View v){
         //setContentView()
-
-        setContentView(R.layout.activity_main);
-        addStates();
+        setContentView(R.layout.activity_general);
         return true;
     }
     public boolean backToLogin(View v){
@@ -202,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
                                     newSchoolToEnter.setSatR75(school.getString("latest.admissions.sat_scores.75th_percentile.critical_reading"));
                                     newSchoolToEnter.setRegID(school.getString("school.region_id"));
                                     newSchoolToEnter.setStudentSize(school.getString("latest.student.size"));
+                                    newSchoolToEnter.setMaxDegree(school.getString("school.degrees_awarded.highest"));
                                     newSchoolToEnter.setMainDegree(school.getString("school.degrees_awarded.predominant"));
                                     newSchoolToEnter.setAdmRate(school.getString("latest.admissions.admission_rate.overall"));
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -246,6 +221,7 @@ public class MainActivity extends AppCompatActivity {
                 "latest.student.size," +
                 "latest.admissions.admission_rate.overall," +
                 "school.degrees_awarded.predominant," +
+                "school.degrees_awarded.highest," +
                 "latest.admissions.sat_scores.25th_percentile.critical_reading," +
                 "latest.admissions.sat_scores.25th_percentile.math," +
                 "latest.admissions.sat_scores.25th_percentile.writing," +

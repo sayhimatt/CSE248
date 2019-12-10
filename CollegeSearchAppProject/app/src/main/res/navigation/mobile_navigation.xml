@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_search">
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.guidi.collegesearch.main.ui.searchView.SearchFragment"
+        android:label="Search" />
+
+    <fragment
+        android:id="@+id/navigation_results"
+        android:name="com.guidi.collegesearch.main.ui.notifications.NotificationsFragment"
+        android:label="Search Results"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.guidi.collegesearch.main.ui.notifications.NotificationsFragment"
+        android:label="@string/title_account"
+        tools:layout="@layout/fragment_notifications" />
+</navigation>

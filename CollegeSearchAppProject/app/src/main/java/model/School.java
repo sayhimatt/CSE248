@@ -1,7 +1,7 @@
 package model;
 
 public class School {
-    private int id, costIn, costOut, regID, studentSize, mainDegree;
+    private int id, costIn, costOut, regID, studentSize, mainDegree, maxDegree;
     private String collegeName, city, stateAbr, schoolURL, zip;
     private double admRate, satW25, satW75, satM25,
             satM75, satR25, satR75;
@@ -152,6 +152,16 @@ public class School {
             this.mainDegree = 0;
         }else {
             this.mainDegree = Integer.parseInt(mainDegree);
+        }
+    }
+    public int getMaxDegree(){
+        return maxDegree;
+    }
+    public void setMaxDegree(String maxDegree){
+        if(maxDegree == "null"){
+            this.maxDegree = 0;
+        }else{
+            this.maxDegree = Integer.parseInt(maxDegree);
         }
     }
 
