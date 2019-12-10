@@ -8,13 +8,14 @@
     <fragment
         android:id="@+id/navigation_search"
         android:name="com.guidi.collegesearch.main.ui.searchView.SearchFragment"
-        android:label="Search" />
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_results"
-        android:name="com.guidi.collegesearch.main.ui.notifications.NotificationsFragment"
-        android:label="Search Results"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.guidi.collegesearch.main.ui.dashboard.DashboardFragment"
+        android:label="@string/title_results"
+        tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"

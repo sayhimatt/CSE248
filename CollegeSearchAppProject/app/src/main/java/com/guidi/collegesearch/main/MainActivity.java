@@ -1,6 +1,7 @@
 package com.guidi.collegesearch.main;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -9,7 +10,9 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.ActionMenuView;
 import android.widget.Button;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -18,6 +21,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -46,45 +50,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
 
-        setContentView(R.layout.activity_login);
-        OnClickAssigner.setOnClickAssigner(findViewById(R.id.main_login_linear_layout), mAuth, this);
-        OnClickAssigner.loginHandler();
-        numOfSchoolsFound = 0;
+        /*loadMainFragments();*/
         mAuth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 //mToast.mT(findViewById(R.id.main_login_linear_layout), "Sorry something went wrong you'll have to sign in again", true);
                 // Display the login page
+
             }
         });
         if(mAuth.getCurrentUser() != null) {
-            Log.d("whoAmISignedInAs?", mAuth.getCurrentUser().getEmail());
-            //goToMainActivity(this.findViewById(R.id.main_login_linear_layout));/*
-            //FirebaseDatabase database = FirebaseDatabase.getInstance();
-            //DatabaseReference myRef = database.getReference("schools");
-            //myRef.removeValue();*/
-            /*testQueue = Volley.newRequestQueue(this);
-            getTotalPagesToParse();
-            testQueue.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<Object>() {
-                @Override
+            //Log.d("whoAmISignedInAs?", mAuth.getCurrentUser().getEmail());
 
-                public void onRequestFinished(Request<Object> request) {
-                    pageN--;
-                    betterQueue = Volley.newRequestQueue(getBaseContext());
-                    betterQueue.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<Object>() {
-                        @Override
-                        public void onRequestFinished(Request<Object> request) {
-                            Log.d("Wow" , "I found this many schools " + numOfSchoolsFound);
-                        }
-                    });
-                    for(int i = 0; i <= maxPageN; i++) {
-                        Log.d("Page #", "" + i);
-                        jsonParse();
-                    }
-
-
-                }
-            });*/
             setContentView(R.layout.activity_general);
             BottomNavigationView navView = findViewById(R.id.nav_view);
             // Passing each menu ID as a set of Ids because each
@@ -96,16 +73,54 @@ public class MainActivity extends AppCompatActivity {
             NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
             NavigationUI.setupWithNavController(navView, navController);
 
+
+        }else{
+
         }
 
-
-
-
     }
-
-    public boolean goToMainActivity(View v){
-        //setContentView()
+    public void loadMainFragments(){
         setContentView(R.layout.activity_general);
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_search)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(navView, navController);
+    }
+    private void reformTheDatabase(){
+        numOfSchoolsFound = 0;
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("schools");
+        myRef.removeValue();
+        testQueue = Volley.newRequestQueue(this);
+        getTotalPagesToParse();
+        testQueue.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<Object>() {
+            @Override
+
+            public void onRequestFinished(Request<Object> request) {
+                pageN--;
+                betterQueue = Volley.newRequestQueue(getBaseContext());
+                betterQueue.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<Object>() {
+                    @Override
+                    public void onRequestFinished(Request<Object> request) {
+                        Log.d("Wow" , "I found this many schools " + numOfSchoolsFound);
+                    }
+                });
+                for(int i = 0; i <= maxPageN; i++) {
+                    Log.d("Page #", "" + i);
+                    jsonParse();
+                }
+
+
+            }
+        });
+    }
+    public boolean goToMainActivity(View v){
+        loadMainFragments();
         return true;
     }
     public boolean backToLogin(View v){

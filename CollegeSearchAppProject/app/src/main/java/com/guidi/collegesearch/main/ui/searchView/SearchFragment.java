@@ -38,7 +38,7 @@ public class SearchFragment extends Fragment {
         getIt(root);
         return root;
     }
-    private void getIt(View root){
+    private void getIt(@NonNull View root){
             CheckboxSpinner stateSpinner = (CheckboxSpinner)(root.findViewById(R.id.select_state_spinner));
 
             ArrayAdapter<String> itemsAdapter =
