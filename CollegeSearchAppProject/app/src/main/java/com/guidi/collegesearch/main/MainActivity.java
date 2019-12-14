@@ -36,6 +36,7 @@ import static com.guidi.collegesearch.backCode.util.OnClickAssigner.registration
 public class MainActivity extends AppCompatActivity {
     private static int maxPageN;
     private static int pageN;
+    public static int myCounter = 4;
     private static int numOfSchoolsFound;
     private FirebaseAuth mAuth;
     private FirebaseDatabase userDatabase;
@@ -59,25 +60,16 @@ public class MainActivity extends AppCompatActivity {
         if (mAuth.getCurrentUser() != null) {
             //Log.d("whoAmISignedInAs?", mAuth.getCurrentUser().getEmail());
 
-            setContentView(R.layout.activity_general);
-            BottomNavigationView navView = findViewById(R.id.nav_view);
-            // Passing each menu ID as a set of Ids because each
-            // menu should be considered as top level destinations.
-            AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.navigation_search)
-                    .build();
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-            NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-            NavigationUI.setupWithNavController(navView, navController);
+           loadMainFragments();
 
 
         } else {
-
+            backToLogin();
         }
 
     }
 
-    public void loadMainFragments() {
+    public  void loadMainFragments() {
         setContentView(R.layout.activity_general);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -123,7 +115,12 @@ public class MainActivity extends AppCompatActivity {
         loadMainFragments();
         return true;
     }
-
+    public boolean backToLogin() {
+        setContentView(R.layout.activity_login);
+        OnClickAssigner.setOnClickAssigner(findViewById(R.id.main_login_linear_layout), mAuth, this);
+        loginHandler();
+        return true;
+    }
     public boolean backToLogin(View v) {
         setContentView(R.layout.activity_login);
         OnClickAssigner.setOnClickAssigner(findViewById(R.id.main_login_linear_layout), mAuth, this);

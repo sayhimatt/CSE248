@@ -1,4 +1,4 @@
-package com.guidi.collegesearch.frontEnd.ui.results_view;
+package com.guidi.collegesearch.frontEnd.ui.result_view;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,7 +10,7 @@ public class ResultsViewModel extends ViewModel {
 
     public ResultsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("This is dashboard fragment");
     }
 
     public LiveData<String> getText() {

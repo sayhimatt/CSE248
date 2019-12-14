@@ -22,8 +22,8 @@ public class AccountFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         accountViewModel =
                 ViewModelProviders.of(this).get(AccountViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_results, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
+        View root = inflater.inflate(R.layout.fragment_account, container, false);
+        final TextView textView = root.findViewById(R.id.text_results);
         accountViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

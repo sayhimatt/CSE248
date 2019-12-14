@@ -8,13 +8,20 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.guidi.collegesearch.main.MainActivity;
 import com.guidi.collegesearch.main.R;
 import com.guidi.collegesearch.frontEnd.mToast;
 import com.guidi.collegesearch.backCode.model.Account;
@@ -45,8 +52,8 @@ public final class OnClickAssigner {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         Log.d("Login Test", "signInWithEmail:success");
-                                        mToast.mT(rootV, "Login successful", true);
-                                        mainActivity.setContentView(R.layout.activity_general);
+                                        mToast.mT(rootV, "Login successful", false);
+                                        loadIt();
                                     } else {
                                         Log.w("Login Test", "signInWithEmail:failure", task.getException());
                                         mToast.mT(rootV, "Sorry mate wrong login info", true);
@@ -118,8 +125,7 @@ public final class OnClickAssigner {
                                 // Sign in success, update UI with the signed-in user's information
                                 mToast.mT(rootV, "It worked", true);
                                 uploadUser(myAccount);
-                                mainActivity.setContentView(R.layout.activity_general);
-
+                                loadIt();
 
                             } else {
                                 // If sign in fails, display a message to the user
@@ -136,7 +142,19 @@ public final class OnClickAssigner {
             }
         });
     }
+    private static void loadIt(){
+        mainActivity.setContentView(R.layout.activity_general);
+        BottomNavigationView navView = mainActivity.findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_search)
+                .build();
+        NavController navController = Navigation.findNavController(mainActivity, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController((AppCompatActivity) mainActivity, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(navView, navController);
 
+    }
     private static void uploadUser(Account myAccount) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("users");

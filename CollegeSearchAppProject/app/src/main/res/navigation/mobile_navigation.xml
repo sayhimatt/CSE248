@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_results"
-        android:name="com.guidi.collegesearch.frontEnd.ui.account_view.AccountFragment"
+        android:name="com.guidi.collegesearch.frontEnd.ui.result_view.ResultsFragment"
         android:label="@string/title_results"
         tools:layout="@layout/fragment_results" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.guidi.collegesearch.frontEnd.ui.results_view.ResultsFragment"
+        android:name="com.guidi.collegesearch.frontEnd.ui.account_view.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" />
 </navigation>
