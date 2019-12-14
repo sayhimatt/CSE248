@@ -5,15 +5,58 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text_results"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:id="@+id/your_account_tv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/manage_account_string"
+        app:layout_constraintBottom_toTopOf="@+id/email_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/email_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/email_address"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/your_account_tv" />
+
+    <TextView
+        android:id="@+id/firstName_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Name:" />
+
+    <TextView
+        android:id="@+id/lastName_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Name:" />
+
+    <TextView
+        android:id="@+id/actScore_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ACT Score:" />
+
+    <TextView
+        android:id="@+id/satScore_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAT Score:" />
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout" />
+
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm Changes" />
 </androidx.constraintlayout.widget.ConstraintLayout>

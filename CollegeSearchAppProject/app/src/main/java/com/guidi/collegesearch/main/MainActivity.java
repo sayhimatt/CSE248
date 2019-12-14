@@ -36,7 +36,8 @@ import static com.guidi.collegesearch.backCode.util.OnClickAssigner.registration
 public class MainActivity extends AppCompatActivity {
     private static int maxPageN;
     private static int pageN;
-    public static int myCounter = 4;
+    public static int myCounter = 0;
+    public static String [] whatIGot;
     private static int numOfSchoolsFound;
     private FirebaseAuth mAuth;
     private FirebaseDatabase userDatabase;
@@ -61,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
             //Log.d("whoAmISignedInAs?", mAuth.getCurrentUser().getEmail());
 
            loadMainFragments();
-
 
         } else {
             backToLogin();
