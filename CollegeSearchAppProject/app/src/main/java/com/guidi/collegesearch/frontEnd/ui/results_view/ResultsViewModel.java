@@ -1,16 +1,16 @@
-package com.guidi.collegesearch.main.ui.searchView;
+package com.guidi.collegesearch.frontEnd.ui.results_view;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SearchViewModel extends ViewModel {
+public class ResultsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SearchViewModel() {
+    public ResultsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Search Area");
+        mText.setValue("This is notifications fragment");
     }
 
     public LiveData<String> getText() {

@@ -1,19 +1,16 @@
 package com.guidi.collegesearch.main;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.ActionMenuView;
-import android.widget.Button;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -26,16 +23,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.guidi.collegesearch.backCode.model.School;
+import com.guidi.collegesearch.backCode.util.OnClickAssigner;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import model.School;
-import util.OnClickAssigner;
-
-import static util.OnClickAssigner.loginHandler;
-import static util.OnClickAssigner.registrationHandler;
+import static com.guidi.collegesearch.backCode.util.OnClickAssigner.loginHandler;
+import static com.guidi.collegesearch.backCode.util.OnClickAssigner.registrationHandler;
 
 public class MainActivity extends AppCompatActivity {
     private static int maxPageN;
@@ -45,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase userDatabase;
     private RequestQueue testQueue;
     private RequestQueue betterQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        if(mAuth.getCurrentUser() != null) {
+        if (mAuth.getCurrentUser() != null) {
             //Log.d("whoAmISignedInAs?", mAuth.getCurrentUser().getEmail());
 
             setContentView(R.layout.activity_general);
@@ -74,12 +71,13 @@ public class MainActivity extends AppCompatActivity {
             NavigationUI.setupWithNavController(navView, navController);
 
 
-        }else{
+        } else {
 
         }
 
     }
-    public void loadMainFragments(){
+
+    public void loadMainFragments() {
         setContentView(R.layout.activity_general);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -91,7 +89,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
-    private void reformTheDatabase(){
+
+    private void reformTheDatabase() {
         numOfSchoolsFound = 0;
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("schools");
@@ -107,10 +106,10 @@ public class MainActivity extends AppCompatActivity {
                 betterQueue.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<Object>() {
                     @Override
                     public void onRequestFinished(Request<Object> request) {
-                        Log.d("Wow" , "I found this many schools " + numOfSchoolsFound);
+                        Log.d("Wow", "I found this many schools " + numOfSchoolsFound);
                     }
                 });
-                for(int i = 0; i <= maxPageN; i++) {
+                for (int i = 0; i <= maxPageN; i++) {
                     Log.d("Page #", "" + i);
                     jsonParse();
                 }
@@ -119,25 +118,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    public boolean goToMainActivity(View v){
+
+    public boolean goToMainActivity(View v) {
         loadMainFragments();
         return true;
     }
-    public boolean backToLogin(View v){
+
+    public boolean backToLogin(View v) {
         setContentView(R.layout.activity_login);
         OnClickAssigner.setOnClickAssigner(findViewById(R.id.main_login_linear_layout), mAuth, this);
         loginHandler();
         return true;
     }
-    public boolean registerAccount(View v){
+
+    public boolean registerAccount(View v) {
         setContentView(R.layout.activity_register);
-        Button rButton = (Button)findViewById(R.id.register_account_button);
+        Button rButton = findViewById(R.id.register_account_button);
         OnClickAssigner.setOnClickAssigner(findViewById(R.id.root_registration_view), mAuth, this);
         registrationHandler();
 
         return true;
     }
-    private void getTotalPagesToParse(){
+
+    private void getTotalPagesToParse() {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, getQueryForm(), null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -146,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                             JSONObject metadata = response.getJSONObject("metadata");
                             int i = metadata.getInt("total");
                             double d = (i / 100);
-                            i = (int)(d + 1);
+                            i = (int) (d + 1);
                             maxPageN = i;
 
                         } catch (JSONException e) {
@@ -163,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
         testQueue.add(request);
     }
+
     private void jsonParse() {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, getQueryForm(), null,
                 new Response.Listener<JSONObject>() {
@@ -198,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
                                     DatabaseReference myRef = database.getReference("schools");
                                     myRef.child(String.valueOf(newSchoolToEnter.getId())).setValue(newSchoolToEnter);
                                     numOfSchoolsFound++;
-                                }catch(JSONException e){
+                                } catch (JSONException e) {
 
                                 }
                             }
@@ -220,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private String getQueryForm(){
+    private String getQueryForm() {
         final String API_KEY = "Afw22hMz3Vc46y5Qps2Zrhr9VcpyEec383DD1dBl";
         int page = pageN;
         String qForm = "https://api.data.gov/ed/collegescorecard/v1/schools.json?&fields=" +
@@ -249,7 +253,6 @@ public class MainActivity extends AppCompatActivity {
         pageN++;
         return qForm;
     }
-
 
 
 }

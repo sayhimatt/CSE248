@@ -1,12 +1,13 @@
-package util;
+package com.guidi.collegesearch.backCode.util;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * This holds the enum State since there is a limited amount of state's to register in
- * @author Matt Guidi
  *
+ * @author Matt Guidi
  */
 public enum State {
 
@@ -26,16 +27,6 @@ public enum State {
             "No State", "N/A");
 
     /**
-     * The state's name.
-     */
-    private String name;
-
-    /**
-     * The state's abbreviation.
-     */
-    private String abbreviation;
-
-    /**
      * The set of states addressed by abbreviations.
      */
     private static final Map<String, State> STATES_BY_ABBR = new HashMap<String, State>();
@@ -50,34 +41,35 @@ public enum State {
         }
     }
 
+    /**
+     * The state's name.
+     */
+    private String name;
+    /**
+     * The state's abbreviation.
+     */
+    private String abbreviation;
+
     State(String name, String abbreviation) {
         this.name = name;
         this.abbreviation = abbreviation;
     }
 
     /**
-     * Returns the state's abbreviation.
-     *
-     * @return the state's abbreviation.
-     */
-    public String getAbbreviation() {
-        return abbreviation;
-    }
-    /**
-     *
      * @return the list of all abbreviation's
      */
     public static ArrayList<String> getAbbreviationList() {
         ArrayList<String> abbrList = new ArrayList<String>();
 
-        for(State state : values()) {
+        for (State state : values()) {
             abbrList.add(state.abbreviation);
         }
         return abbrList;
     }
-    public static ArrayList<String> getStateNameList(){
+
+    public static ArrayList<String> getStateNameList() {
         ArrayList<String> nameList = new ArrayList<String>();
-        for(State state : values()) {
+        for (State state : values()) {
             nameList.add(state.name);
         }
         return nameList;
@@ -105,6 +97,15 @@ public enum State {
         } catch (final IllegalArgumentException e) {
             return State.NO_STATE;
         }
+    }
+
+    /**
+     * Returns the state's abbreviation.
+     *
+     * @return the state's abbreviation.
+     */
+    public String getAbbreviation() {
+        return abbreviation;
     }
 
     @Override

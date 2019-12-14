@@ -1,9 +1,8 @@
-package custom_views;
+package com.guidi.collegesearch.frontEnd;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.util.AttributeSet;
-import android.widget.ArrayAdapter;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatSpinner;
@@ -12,36 +11,30 @@ import java.util.List;
 
 
 public class CheckboxSpinner extends AppCompatSpinner implements
-        DialogInterface.OnMultiChoiceClickListener, DialogInterface.OnCancelListener
-{
+        DialogInterface.OnMultiChoiceClickListener, DialogInterface.OnCancelListener {
     private List<String> listitems;
     private boolean[] checked;
 
-    public CheckboxSpinner(Context context)
-    {
+    public CheckboxSpinner(Context context) {
         super(context);
     }
-    public CheckboxSpinner(Context arg0, AttributeSet arg1)
-    {
+
+    public CheckboxSpinner(Context arg0, AttributeSet arg1) {
         super(arg0, arg1);
     }
-    public CheckboxSpinner(Context arg0, AttributeSet arg1, int arg2)
-    {
+
+    public CheckboxSpinner(Context arg0, AttributeSet arg1, int arg2) {
         super(arg0, arg1, arg2);
     }
+
     @Override
-    public void onClick(DialogInterface dialog, int ans, boolean isChecked)
-    {
-        if (isChecked)
-            checked[ans] = true;
-        else
-            checked[ans] = false;
+    public void onClick(DialogInterface dialog, int ans, boolean isChecked) {
+        checked[ans] = isChecked;
     }
 
 
     @Override
-    public void onCancel(DialogInterface dialog)
-    {
+    public void onCancel(DialogInterface dialog) {
 
         /*String str="Selected values are: ";
 
@@ -68,18 +61,15 @@ public class CheckboxSpinner extends AppCompatSpinner implements
     }
 
     @Override
-    public boolean performClick()
-    {
+    public boolean performClick() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setMultiChoiceItems(
                 listitems.toArray(new CharSequence[listitems.size()]), checked, this);
         builder.setPositiveButton("done",
-                new DialogInterface.OnClickListener()
-                {
+                new DialogInterface.OnClickListener() {
 
                     @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
+                    public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
                     }
                 });
@@ -88,13 +78,12 @@ public class CheckboxSpinner extends AppCompatSpinner implements
         return true;
     }
 
-    public void setItems(List<String> items)
-    {
+    public void setItems(List<String> items) {
         this.listitems = items;
 
         checked = new boolean[items.size()];
         for (int i = 0; i < checked.length; i++)
-            checked[i] =false;
+            checked[i] = false;
 
     }
 
