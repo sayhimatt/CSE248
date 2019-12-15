@@ -3,16 +3,13 @@ package com.guidi.collegesearch.frontEnd.ui.result_view;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,12 +18,11 @@ import com.guidi.collegesearch.backCode.model.School;
 import com.guidi.collegesearch.backCode.util.Degree;
 import com.guidi.collegesearch.backCode.util.Region;
 import com.guidi.collegesearch.backCode.util.State;
-import com.guidi.collegesearch.main.MainActivity;
 import com.guidi.collegesearch.main.R;
 
 import java.util.ArrayList;
 
-import static com.guidi.collegesearch.frontEnd.ui.result_view.Results_Handler.getSchoolSearchResults;
+import static com.guidi.collegesearch.frontEnd.ui.result_view.ResultsHandler.getSchoolSearchResults;
 
 public class ResultsFragment extends Fragment {
     private ResultsViewModel resultsViewModel;

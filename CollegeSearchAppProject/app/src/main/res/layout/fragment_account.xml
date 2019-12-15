@@ -20,69 +20,148 @@
         android:id="@+id/email_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:gravity="center"
         android:text="@string/email_address"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/firstName_tv"
+        app:layout_constraintEnd_toStartOf="@id/email_et"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/your_account_tv" />
+
+    <EditText
+        android:id="@+id/email_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:editable="false"
+        android:ems="10"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/firstName_tv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/email_view"
         app:layout_constraintTop_toBottomOf="@id/your_account_tv" />
 
     <TextView
         android:id="@+id/firstName_tv"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:gravity="center"
         android:text="First Name:"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/lastName_tv"
+        app:layout_constraintEnd_toStartOf="@id/fname_et"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_view" />
+
+    <EditText
+        android:id="@+id/fname_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/lastName_tv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/firstName_tv"
         app:layout_constraintTop_toBottomOf="@id/email_view" />
 
     <TextView
         android:id="@+id/lastName_tv"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:gravity="center"
         android:text="Last Name:"
-        app:layout_constraintBottom_toTopOf="@+id/actScore_view"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sat_rw_score_tv"
+        app:layout_constraintEnd_toStartOf="@id/lname_et"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/firstName_tv" />
 
-    <TextView
-        android:id="@+id/actScore_view"
+    <EditText
+        android:id="@+id/lname_et"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="ACT Score:"
-        app:layout_constraintBottom_toTopOf="@+id/satScore_tv"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/sat_rw_score_tv"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/lastName_tv"
+        app:layout_constraintTop_toBottomOf="@id/firstName_tv" />
+
+    <TextView
+        android:id="@+id/sat_rw_score_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="Reading and Writing Score:"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sat_m_score_tv"
+        app:layout_constraintEnd_toStartOf="@id/sat_rw_et"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lastName_tv" />
 
+    <EditText
+        android:id="@+id/sat_rw_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@id/sat_rw_score_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/sat_rw_score_tv"
+        app:layout_constraintTop_toBottomOf="@id/lastName_tv" />
+
     <TextView
-        android:id="@+id/satScore_tv"
+        android:id="@+id/sat_m_score_tv"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="SAT Score:"
+        android:gravity="right|center_vertical"
+        android:text="Math Score:"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/logout_button"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/sat_rw_score_tv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/actScore_view" />
+        app:layout_constraintTop_toBottomOf="@id/sat_rw_score_tv" />
+
+    <EditText
+        android:id="@+id/sat_m_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@id/sat_m_score_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/sat_m_score_tv"
+        app:layout_constraintTop_toBottomOf="@id/sat_rw_score_tv" />
 
     <Button
         android:id="@+id/logout_button"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="40dp"
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/confirm_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/satScore_tv" />
+        app:layout_constraintTop_toBottomOf="@id/sat_m_score_tv" />
 
     <Button
         android:id="@+id/confirm_button"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="40dp"
         android:text="Confirm Changes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/logout_button"
-        app:layout_constraintTop_toBottomOf="@id/satScore_tv" />
+        app:layout_constraintTop_toBottomOf="@id/sat_m_score_tv" />
 </androidx.constraintlayout.widget.ConstraintLayout>

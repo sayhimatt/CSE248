@@ -23,7 +23,9 @@ public class AccountFragment extends Fragment {
         accountViewModel =
                 ViewModelProviders.of(this).get(AccountViewModel.class);
         View root = inflater.inflate(R.layout.fragment_account, container, false);
-
+        AccountHandler aH = new AccountHandler();
+        aH.getCurrentAccount();
+        
         return root;
     }
 }

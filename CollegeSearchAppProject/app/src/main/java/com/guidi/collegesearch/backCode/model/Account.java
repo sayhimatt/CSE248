@@ -1,10 +1,10 @@
 package com.guidi.collegesearch.backCode.model;
 
 public class Account {
-    private static final int MIN_SAT_SCORE = 400, MAX_SAT_SCORE = 1600, MIN_ACT_SCORE = 1, MAX_ACT_SCORE = 36;
+    private static final int MIN_SAT_SCORE = 200, MAX_SAT_SCORE = 800;
     private Username username;
     private String firstName, lastName;
-    private int satScore, actScore;
+    private int satMScore, satWScore;
 
     /*Minimum SAT score is 400 Max SAT score is 1600
      Minimum ACT score is 1 Max ACT score is 36
@@ -14,6 +14,14 @@ public class Account {
         this.username = username;
         this.firstName = fN;
         this.lastName = lN;
+    }
+
+    public Account(Username username, String firstName, String lastName, int satMScore, int satWScore) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.satMScore = satMScore;
+        this.satWScore = satWScore;
     }
 
     public String getUsername() {
@@ -28,29 +36,26 @@ public class Account {
         return lastName;
     }
 
-    public int getSatScore() {
-        return satScore;
+    public int getSatMScore() {
+        return satMScore;
     }
-
-    public void setSatScore(int score) {
-        this.satScore = score;
+    public int getSatRScore(){
+        return satWScore;
+    }
+    public void setSatMScore(int score) {
+        this.satMScore = score;
         if (score < MIN_SAT_SCORE) {
-            this.satScore = MIN_SAT_SCORE;
+            this.satMScore = MIN_SAT_SCORE;
         } else if (score > MAX_SAT_SCORE)
-            this.satScore = MAX_SAT_SCORE;
+            this.satMScore = MAX_SAT_SCORE;
 
     }
-
-    public int getActScore() {
-        return actScore;
-    }
-
-    public void setActScore(int score) {
-        this.actScore = score;
-        if (score < MIN_ACT_SCORE) {
-            this.actScore = MIN_ACT_SCORE;
-        } else if (score > MAX_ACT_SCORE)
-            this.actScore = MAX_ACT_SCORE;
+    public void setSatWScore(int score) {
+        this.satWScore = score;
+        if (score < MIN_SAT_SCORE) {
+            this.satWScore = MIN_SAT_SCORE;
+        } else if (score > MAX_SAT_SCORE)
+            this.satWScore = MAX_SAT_SCORE;
 
     }
 

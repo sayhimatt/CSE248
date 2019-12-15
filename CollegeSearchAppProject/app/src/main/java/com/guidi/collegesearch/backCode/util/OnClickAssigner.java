@@ -21,7 +21,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.guidi.collegesearch.main.MainActivity;
 import com.guidi.collegesearch.main.R;
 import com.guidi.collegesearch.frontEnd.mToast;
 import com.guidi.collegesearch.backCode.model.Account;
@@ -82,17 +81,17 @@ public final class OnClickAssigner {
                 String password2 = ((EditText) (rootV.findViewById(R.id.password_two_editText))).getText().toString();
                 String firstName = ((EditText) (rootV.findViewById(R.id.first_name_editText))).getText().toString();
                 String lastName = ((EditText) (rootV.findViewById(R.id.last_name_editText))).getText().toString();
-                int satScore;
+                int satMScore;
                 try {
-                    satScore = Integer.parseInt(((EditText) (rootV.findViewById(R.id.sat_score_editText))).getText().toString().trim());
+                    satMScore = Integer.parseInt(((EditText) (rootV.findViewById(R.id.sat_math_score_etext))).getText().toString().trim());
                 } catch (NumberFormatException e) {
-                    satScore = 0;
+                    satMScore = 800;
                 }
-                int actScore;
+                int satWScore;
                 try {
-                    actScore = Integer.parseInt(((EditText) (rootV.findViewById(R.id.act_score_editText))).getText().toString().trim());
+                    satWScore = Integer.parseInt(((EditText) (rootV.findViewById(R.id.sat_rw_score_etext))).getText().toString().trim());
                 } catch (NumberFormatException e) {
-                    actScore = 0;
+                    satWScore = 800;
                 }
                 if (email.equals("")) {
                     mToast.mT(v, "Fill in your Email\n ... moron", false);
@@ -107,15 +106,15 @@ public final class OnClickAssigner {
                 }
                 if (password.equals(password2)) {
                     final Account myAccount = new Account(new Username(email), firstName, lastName);
-                    if (satScore != 0) {
-                        myAccount.setSatScore(satScore);
+                    if (satMScore != 0) {
+                        myAccount.setSatMScore(satMScore);
                     } else {
-                        myAccount.setSatScore(1600);
+                        myAccount.setSatMScore(800);
                     }
-                    if (actScore != 0) {
-                        myAccount.setActScore(actScore);
+                    if (satWScore != 0) {
+                        myAccount.setSatWScore(satWScore);
                     } else {
-                        myAccount.setActScore(36);
+                        myAccount.setSatWScore(800);
                     }
 
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -138,7 +137,6 @@ public final class OnClickAssigner {
                     });
 
                 }
-                Log.e("something happened", "HERE HERE AFTER");
             }
         });
     }

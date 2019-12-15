@@ -13,9 +13,9 @@ import com.guidi.collegesearch.backCode.model.School;
 
 import java.util.ArrayList;
 
-public class Results_Handler {
+public class ResultsHandler {
     public static ArrayList<School> schoolSearchResults = new ArrayList<School>();
-    public Results_Handler(){
+    public ResultsHandler(){
 
     }
     public void newSearch(String nameOID){

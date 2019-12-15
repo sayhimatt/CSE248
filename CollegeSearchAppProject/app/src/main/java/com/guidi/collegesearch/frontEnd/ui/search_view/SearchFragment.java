@@ -1,6 +1,5 @@
 package com.guidi.collegesearch.frontEnd.ui.search_view;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.guidi.collegesearch.frontEnd.ui.result_view.Results_Handler;
+import com.guidi.collegesearch.frontEnd.ui.result_view.ResultsHandler;
 import com.guidi.collegesearch.main.R;
 import com.guidi.collegesearch.frontEnd.CheckboxSpinner;
 import com.guidi.collegesearch.backCode.util.State;
@@ -57,7 +56,7 @@ public class SearchFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Results_Handler a = new Results_Handler();
+                ResultsHandler a = new ResultsHandler();
                 a.newSearch(nameOIDET.getText().toString());
             }
         });
