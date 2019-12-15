@@ -2,61 +2,87 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/mattColorBackground">
 
-    <TextView
+    <ImageView
         android:id="@+id/your_account_tv"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/manage_account_string"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/email_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sign_in_icon" />
 
     <TextView
         android:id="@+id/email_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/email_address"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/firstName_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/your_account_tv" />
+        app:layout_constraintTop_toBottomOf="@id/your_account_tv" />
 
     <TextView
         android:id="@+id/firstName_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="First Name:" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="First Name:"
+        app:layout_constraintBottom_toTopOf="@+id/lastName_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_view" />
 
     <TextView
         android:id="@+id/lastName_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Last Name:" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Last Name:"
+        app:layout_constraintBottom_toTopOf="@+id/actScore_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstName_tv" />
 
     <TextView
         android:id="@+id/actScore_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ACT Score:" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="ACT Score:"
+        app:layout_constraintBottom_toTopOf="@+id/satScore_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lastName_tv" />
 
     <TextView
         android:id="@+id/satScore_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SAT Score:" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="SAT Score:"
+        app:layout_constraintBottom_toTopOf="@+id/logout_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/actScore_view" />
 
     <Button
         android:id="@+id/logout_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/confirm_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/satScore_tv" />
 
     <Button
         android:id="@+id/confirm_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Confirm Changes" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Confirm Changes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/logout_button"
+        app:layout_constraintTop_toBottomOf="@id/satScore_tv" />
 </androidx.constraintlayout.widget.ConstraintLayout>

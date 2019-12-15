@@ -10,6 +10,7 @@ public class School {
 
     }
 
+
     public int getId() {
         return id;
     }

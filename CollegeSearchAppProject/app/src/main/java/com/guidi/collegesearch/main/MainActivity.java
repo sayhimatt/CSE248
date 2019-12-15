@@ -21,8 +21,12 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.guidi.collegesearch.backCode.model.School;
 import com.guidi.collegesearch.backCode.util.OnClickAssigner;
 
@@ -30,14 +34,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import static com.guidi.collegesearch.backCode.util.OnClickAssigner.loginHandler;
 import static com.guidi.collegesearch.backCode.util.OnClickAssigner.registrationHandler;
 
 public class MainActivity extends AppCompatActivity {
     private static int maxPageN;
     private static int pageN;
-    public static int myCounter = 0;
-    public static String [] whatIGot;
+    public static ArrayList <School> whatIGot;
     private static int numOfSchoolsFound;
     private FirebaseAuth mAuth;
     private FirebaseDatabase userDatabase;
@@ -60,9 +65,7 @@ public class MainActivity extends AppCompatActivity {
         });
         if (mAuth.getCurrentUser() != null) {
             //Log.d("whoAmISignedInAs?", mAuth.getCurrentUser().getEmail());
-
            loadMainFragments();
-
         } else {
             backToLogin();
         }
@@ -220,7 +223,10 @@ public class MainActivity extends AppCompatActivity {
         betterQueue.add(request);
 
     }
-
+    private School dataSnapToSchool(DataSnapshot s){
+        School schoolMade = null;
+        return schoolMade;
+    }
     private String getQueryForm() {
         final String API_KEY = "Afw22hMz3Vc46y5Qps2Zrhr9VcpyEec383DD1dBl";
         int page = pageN;
