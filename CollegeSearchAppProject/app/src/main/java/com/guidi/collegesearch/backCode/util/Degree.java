@@ -14,7 +14,7 @@ public enum Degree {
         this.dNum = dNum;
         this.dName = dName;
     }
-    public String getdNameByKey(int i){
+    public static String getdNameByKey(int i){
         switch(i){
             case 0:
                 return NO_DEGREE.dName;

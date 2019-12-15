@@ -3,6 +3,7 @@ package com.guidi.collegesearch.frontEnd.ui.result_view;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.guidi.collegesearch.backCode.model.School;
 import com.guidi.collegesearch.backCode.util.Degree;
+import com.guidi.collegesearch.backCode.util.Region;
 import com.guidi.collegesearch.backCode.util.State;
 import com.guidi.collegesearch.main.MainActivity;
 import com.guidi.collegesearch.main.R;
@@ -63,16 +65,7 @@ public class ResultsFragment extends Fragment {
                     AlertDialog.Builder alertDialogBuilder =
                             new AlertDialog.Builder(getContext())
                                 .setTitle(cSch.getCollegeName() + " Info")
-                                .setMessage("Unique ID: " + cSch.getId()+"\n"+
-                                            "State: " + (State.valueOfAbbreviation(cSch.getStateAbr())).toString()+"\n"+
-                                            "City: " + cSch.getCity()+"\n"+
-                                            "Zip: " + cSch.getZip()+"\n"+
-                                            "Admissions Rate: " + cSch.getAdmRate()+"\n"+
-                                            "Cost In-State: $" + cSch.getCostIn()+"\n"+
-                                            "Cost Out-of-State: $" + cSch.getCostOut()+"\n"+
-                                            "Primary Degree Given: " + cSch.getMainDegree()
-
-                                )
+                                .setMessage(schoolInfoToString(cSch))
                                 .setNeutralButton("Exit", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -102,6 +95,27 @@ public class ResultsFragment extends Fragment {
 
         }
 
+    }
+    public static String schoolInfoToString(School cSch){
+        String s = "Unique ID: " + cSch.getId()+"\n"+
+                "State: " + (State.valueOfAbbreviation(cSch.getStateAbr())).toString()+"\n"+
+                "City: " + cSch.getCity()+"\n"+
+                "Zip: " + cSch.getZip()+"\n"+
+                "Region: " + Region.getRegionS(cSch.getRegID())+"\n"+
+                "Admissions Rate: " + cSch.getAdmRate()+"\n"+
+                "Cost In-State: $" + cSch.getCostIn()+"\n"+
+                "Cost Out-of-State: $" + cSch.getCostOut()+"\n"+
+                "Primary Degree Awarded: " + Degree.getdNameByKey(cSch.getMainDegree())+"\n"+
+                "Maximum Degree Awarded: " + Degree.getdNameByKey(cSch.getMaxDegree())+"\n"+
+                "School URL: " + cSch.getSchoolURL()+"\n"+
+                "Student Size: " + cSch.getStudentSize()+"\n";
+        if((cSch.getSatM25() != 0) && (cSch.getSatM75() != 0))
+                s += "Math SAT Scores: \n75th: " + cSch.getSatM75() + "\t25th: " + cSch.getSatM25() +"\n";
+        if((cSch.getSatR25() != 0) && (cSch.getSatR75() != 0))
+            s += "Reading SAT Scores: \n75th: " + cSch.getSatR75() + "\t25th: " + cSch.getSatR25() +"\n";
+        if((cSch.getSatW25() != 0) && (cSch.getSatW75() != 0))
+            s += "Writing SAT Scores: \n75th: " + cSch.getSatW75() + "\t25th: " + cSch.getSatW25() +"\n";
+        return s;
     }
 
 }
