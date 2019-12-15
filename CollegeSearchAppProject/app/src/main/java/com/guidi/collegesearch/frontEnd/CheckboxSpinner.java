@@ -30,33 +30,14 @@ public class CheckboxSpinner extends AppCompatSpinner implements
     @Override
     public void onClick(DialogInterface dialog, int ans, boolean isChecked) {
         checked[ans] = isChecked;
+
     }
 
 
     @Override
     public void onCancel(DialogInterface dialog) {
 
-        /*String str="Selected values are: ";
 
-        for (int i = 0; i < listitems.size(); i++)
-        {
-            if (checked[i] == true)
-            {
-                str=str+","+listitems.get(i);
-            }
-
-        }
-
-        AlertDialog.Builder alert1 = new AlertDialog.Builder(getContext());
-
-        alert1.setTitle("Items:");
-
-        alert1.setMessage(str);
-
-        alert1.setPositiveButton("Ok", null);
-
-        alert1.show();
-*/
 
     }
 
@@ -65,11 +46,19 @@ public class CheckboxSpinner extends AppCompatSpinner implements
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setMultiChoiceItems(
                 listitems.toArray(new CharSequence[listitems.size()]), checked, this);
-        builder.setPositiveButton("done",
+        builder.setPositiveButton("Done",
                 new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        for (int i = 0; i < checked.length; i++){
+                            if(checked[i] == true){
+                                getThisSpinner().setSelection(i);
+                                break;
+                            }else {
+                                getThisSpinner().setSelection(checked.length-1);
+                            }
+                        }
                         dialog.cancel();
                     }
                 });
@@ -85,6 +74,9 @@ public class CheckboxSpinner extends AppCompatSpinner implements
         for (int i = 0; i < checked.length; i++)
             checked[i] = false;
 
+    }
+    public CheckboxSpinner getThisSpinner() {
+        return this;
     }
 
 }

@@ -1,5 +1,7 @@
 package com.guidi.collegesearch.backCode.model;
 
+import com.google.firebase.database.PropertyName;
+
 public class Account {
     private static final int MIN_SAT_SCORE = 200, MAX_SAT_SCORE = 800;
     private Username username;
@@ -59,5 +61,14 @@ public class Account {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Account{" +
+                "username=" + username +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", satMScore=" + satMScore +
+                ", satWScore=" + satWScore +
+                '}';
+    }
 }

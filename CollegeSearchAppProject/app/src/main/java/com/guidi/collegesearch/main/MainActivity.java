@@ -29,6 +29,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.guidi.collegesearch.backCode.model.School;
 import com.guidi.collegesearch.backCode.util.OnClickAssigner;
+import com.guidi.collegesearch.frontEnd.ui.account_view.AccountHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         });
         if (mAuth.getCurrentUser() != null) {
             //Log.d("whoAmISignedInAs?", mAuth.getCurrentUser().getEmail());
+            AccountHandler.loadAccount();
            loadMainFragments();
         } else {
             backToLogin();

@@ -97,14 +97,26 @@ public class ResultsFragment extends Fragment {
                 "State: " + (State.valueOfAbbreviation(cSch.getStateAbr())).toString()+"\n"+
                 "City: " + cSch.getCity()+"\n"+
                 "Zip: " + cSch.getZip()+"\n"+
-                "Region: " + Region.getRegionS(cSch.getRegID())+"\n"+
-                "Admissions Rate: " + cSch.getAdmRate()+"\n"+
-                "Cost In-State: $" + cSch.getCostIn()+"\n"+
+                "Region: " + Region.getRegionS(cSch.getRegID())+"\n";
+        if(cSch.getAdmRate() != 0) {
+            s += "Admissions Rate: " + ((int) (cSch.getAdmRate() * 100)) + "%\n";
+        }else{
+            s += "Admissions Rate: " + (100) + "%\n";
+        }
+        s +=    "Cost In-State: $" + cSch.getCostIn()+"\n"+
                 "Cost Out-of-State: $" + cSch.getCostOut()+"\n"+
                 "Primary Degree Awarded: " + Degree.getdNameByKey(cSch.getMainDegree())+"\n"+
-                "Maximum Degree Awarded: " + Degree.getdNameByKey(cSch.getMaxDegree())+"\n"+
-                "School URL: " + cSch.getSchoolURL()+"\n"+
-                "Student Size: " + cSch.getStudentSize()+"\n";
+                "Maximum Degree Awarded: " + Degree.getdNameByKey(cSch.getMaxDegree())+"\n";
+        if(cSch.getSchoolURL().equals("null")){
+               s+= "School URL is not provided sorry :("+"\n";
+        }else {
+            s += "School URL: " + cSch.getSchoolURL() + "\n";
+        }
+        if(cSch.getStudentSize() == 0){
+            s += "Student Size is not provided sorry :("+"\n";
+        }else {
+            s += "Student Size: " + cSch.getStudentSize() + "\n";
+        }
         if((cSch.getSatM25() != 0) && (cSch.getSatM75() != 0))
                 s += "Math SAT Scores: \n75th: " + cSch.getSatM75() + "\t25th: " + cSch.getSatM25() +"\n";
         if((cSch.getSatR25() != 0) && (cSch.getSatR75() != 0))
