@@ -1,5 +1,10 @@
 package com.guidi.collegesearch.backCode.model;
 
+import com.guidi.collegesearch.backCode.util.AccountHandler;
+import com.guidi.collegesearch.backCode.util.Degree;
+import com.guidi.collegesearch.backCode.util.Region;
+import com.guidi.collegesearch.backCode.util.State;
+
 public class School {
     private int id, costIn, costOut, regID, studentSize, mainDegree, maxDegree;
     private String collegeName, city, stateAbr, schoolURL, zip;
@@ -213,5 +218,78 @@ public class School {
         } else {
             this.admRate = Double.parseDouble(admRate);
         }
+    }
+    public static String schoolInfoToString(School cSch){
+        String s = "Unique ID: " + cSch.getId()+"\n"+
+                "State: " + (State.valueOfAbbreviation(cSch.getStateAbr())).toString()+"\n"+
+                "City: " + cSch.getCity()+"\n"+
+                "Zip: " + cSch.getZip()+"\n"+
+                "Region: " + Region.getRegionS(cSch.getRegID())+"\n";
+        if(cSch.getAdmRate() != 0) {
+            s += "Admissions Rate: " + ((int) (cSch.getAdmRate() * 100)) + "%\n";
+        }else{
+            s += "Admissions Rate: " + (100) + "%\n";
+        }
+        s +=    "Cost In-State: $" + cSch.getCostIn()+"\n"+
+                "Cost Out-of-State: $" + cSch.getCostOut()+"\n"+
+                "Primary Degree Awarded: " + Degree.getdNameByKey(cSch.getMainDegree())+"\n"+
+                "Maximum Degree Awarded: " + Degree.getdNameByKey(cSch.getMaxDegree())+"\n";
+        if(cSch.getSchoolURL().equals("null")){
+            s+= "School URL is not provided sorry :("+"\n";
+        }else {
+            s += "School URL: " + cSch.getSchoolURL() + "\n";
+        }
+        if(cSch.getStudentSize() == 0){
+            s += "Student Size is not provided sorry :("+"\n";
+        }else {
+            s += "Student Size: " + cSch.getStudentSize() + "\n";
+        }
+
+        Account a  = AccountHandler.getCurrentAccount();
+        int oldMScore = a.getSatMScore();
+        int oldWScore = a.getSatRScore();
+        int oldRScore = a.getSatRScore();
+
+        int qualityPoints = 0;
+        s+= "Your converted SAT Scores are approximately \n"+
+                " Math: " + oldMScore + " Reading: " + oldRScore + " Writing: " + oldWScore + "\n";
+        if((cSch.getSatM25() != 0) && (cSch.getSatM75() != 0)) {
+            s += "Their Math SAT Scores: \n75th percentile: " + cSch.getSatM75() + "\n25th percentile: " + cSch.getSatM25() + "\n";
+            if (cSch.getSatM75() < oldMScore) {
+                qualityPoints+= 2;
+            }else if(cSch.getSatM25() < oldWScore){
+                qualityPoints++;
+            }else{
+                qualityPoints-= 2;
+            }
+        }
+        if((cSch.getSatR25() != 0) && (cSch.getSatR75() != 0)){
+            s += "Their Reading SAT Scores: \n75th percentile: " + cSch.getSatR75() + "\n25th percentile: " + cSch.getSatR25() +"\n";
+            if (cSch.getSatR75() < oldRScore) {
+                qualityPoints+= 2;
+            }else if(cSch.getSatR25() < oldRScore){
+                qualityPoints++;
+            }else{
+                qualityPoints-= 2;
+            }
+        }
+        if((cSch.getSatW25() != 0) && (cSch.getSatW75() != 0)) {
+            s += "Their Writing SAT Scores: \n75th percentile: " + cSch.getSatW75() + "\n25th percentile: " + cSch.getSatW25() + "\n";
+            if (cSch.getSatM75() < oldMScore) {
+                qualityPoints+= 2;
+            }else if(cSch.getSatM25() < oldWScore){
+                qualityPoints++;
+            }else{
+                qualityPoints-= 2;
+            }
+        }
+        if(qualityPoints < 0){
+            s+= "Your odds of being accepted are grim\n*BASED ON INFO PROVIDED*\n";
+        }else if(qualityPoints > 0 && qualityPoints <= 3){
+            s += "Your odds of being accepted are moderate\n*BASED ON INFO PROVIDED*\n";
+        }else if(qualityPoints > 3){
+            s+= ("Your odds of being accepted are very likely!\n*BASED ON INFO PROVIDED*\n");
+        }
+        return s;
     }
 }

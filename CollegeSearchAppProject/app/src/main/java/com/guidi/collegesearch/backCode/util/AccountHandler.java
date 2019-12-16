@@ -1,4 +1,4 @@
-package com.guidi.collegesearch.frontEnd.ui.account_view;
+package com.guidi.collegesearch.backCode.util;
 
 import android.util.Log;
 
@@ -17,6 +17,7 @@ import com.guidi.collegesearch.backCode.model.Username;
 
 public class AccountHandler {
     private static String fName, lName;
+    public static boolean doneLoading;
     private static Username username;
     private static int satMScore, satRScore;
     private static Account currentAccount;
@@ -32,10 +33,11 @@ public class AccountHandler {
         satMScore = Integer.valueOf(dataSnapshot.child("satMScore").getValue().toString());
         satRScore = Integer.valueOf(dataSnapshot.child("satRScore").getValue().toString());
         currentAccount = new Account(username, fName, lName, satMScore, satRScore);
-        System.out.println("Hi I just finished");
+        doneLoading = true;
 
     }
     public static void loadAccount(){
+        doneLoading = false;
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference actRef = FirebaseDatabase.getInstance().getReference("users/"+id);
         actRef.addListenerForSingleValueEvent(valueEventListener);

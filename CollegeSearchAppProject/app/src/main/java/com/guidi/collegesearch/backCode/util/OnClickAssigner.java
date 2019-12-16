@@ -21,6 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.guidi.collegesearch.main.MainActivity;
 import com.guidi.collegesearch.main.R;
 import com.guidi.collegesearch.frontEnd.mToast;
 import com.guidi.collegesearch.backCode.model.Account;
@@ -124,7 +125,7 @@ public final class OnClickAssigner {
                                 // Sign in success, update UI with the signed-in user's information
                                 mToast.mT(rootV, "It worked", true);
                                 uploadUser(myAccount);
-                                loadIt();
+
 
                             } else {
                                 // If sign in fails, display a message to the user
@@ -137,10 +138,11 @@ public final class OnClickAssigner {
                     });
 
                 }
+
             }
         });
     }
-    private static void loadIt(){
+    public static void loadIt(){
         mainActivity.setContentView(R.layout.activity_general);
         BottomNavigationView navView = mainActivity.findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -158,6 +160,14 @@ public final class OnClickAssigner {
         DatabaseReference myRef = database.getReference("users");
         String id = mAuth.getCurrentUser().getUid();
         myRef.child(id).setValue(myAccount);
+    }
+    public static boolean backToLogin() {
+        FirebaseAuth.getInstance().signOut();
+
+        mainActivity.setContentView(R.layout.activity_login);
+        OnClickAssigner.setOnClickAssigner(mainActivity.findViewById(R.id.main_login_linear_layout), mAuth, mainActivity);
+        loginHandler();
+        return true;
     }
 
 }

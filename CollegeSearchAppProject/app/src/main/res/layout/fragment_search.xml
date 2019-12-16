@@ -2,16 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mattColorBackground"
     android:padding="25dp"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/school_name_edittext"
+    <AutoCompleteTextView
+        android:id="@+id/school_name_ac"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:completionThreshold="1"
         android:ems="10"
         android:gravity="center"
         android:hint="Name of School"
@@ -32,7 +34,7 @@
         app:layout_constraintBottom_toTopOf="@id/zip_distance_spinner"
         app:layout_constraintEnd_toStartOf="@id/select_state_spinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/school_name_edittext" />
+        app:layout_constraintTop_toBottomOf="@id/school_name_ac" />
 
     <com.guidi.collegesearch.frontEnd.CheckboxSpinner
         android:id="@+id/select_state_spinner"
@@ -43,7 +45,7 @@
         app:layout_constraintBottom_toTopOf="@id/zip_distance_spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/select_state_textview"
-        app:layout_constraintTop_toBottomOf="@id/school_name_edittext">
+        app:layout_constraintTop_toBottomOf="@id/school_name_ac">
 
     </com.guidi.collegesearch.frontEnd.CheckboxSpinner>
 
@@ -81,54 +83,54 @@
         android:gravity="center|center_vertical"
         android:text="Level of Award"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/radioButton"
+        app:layout_constraintBottom_toTopOf="@id/c0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/zip_distance_spinner" />
 
     <CheckBox
-        android:id="@+id/radioButton"
+        android:id="@+id/c0"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
         android:text="Certificate Degree"
-        app:layout_constraintBottom_toTopOf="@id/radioButton3"
-        app:layout_constraintEnd_toStartOf="@id/radioButton2"
+        app:layout_constraintBottom_toTopOf="@id/c2"
+        app:layout_constraintEnd_toStartOf="@id/c1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/award_textview" />
 
     <CheckBox
-        android:id="@+id/radioButton2"
+        android:id="@+id/c1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
         android:text="Associate Degree"
-        app:layout_constraintBottom_toTopOf="@id/radioButton3"
+        app:layout_constraintBottom_toTopOf="@id/c2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/radioButton"
+        app:layout_constraintStart_toEndOf="@id/c0"
         app:layout_constraintTop_toBottomOf="@id/award_textview" />
 
     <CheckBox
-        android:id="@+id/radioButton3"
+        android:id="@+id/c2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
         android:text="Bachelor Degree"
         app:layout_constraintBottom_toTopOf="@+id/search_button"
-        app:layout_constraintEnd_toStartOf="@id/radioButton4"
+        app:layout_constraintEnd_toStartOf="@id/c3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioButton" />
+        app:layout_constraintTop_toBottomOf="@id/c0" />
 
     <CheckBox
-        android:id="@+id/radioButton4"
+        android:id="@+id/c3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
         android:text="Graduate Degree"
         app:layout_constraintBottom_toTopOf="@+id/search_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/radioButton3"
-        app:layout_constraintTop_toBottomOf="@id/radioButton" />
+        app:layout_constraintStart_toEndOf="@id/c2"
+        app:layout_constraintTop_toBottomOf="@id/c0" />
 
     <Button
         android:id="@+id/search_button"
@@ -139,6 +141,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioButton4" />
+        app:layout_constraintTop_toBottomOf="@id/c3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

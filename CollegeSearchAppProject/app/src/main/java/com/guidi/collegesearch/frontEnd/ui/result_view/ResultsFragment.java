@@ -10,11 +10,14 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.guidi.collegesearch.backCode.model.Account;
 import com.guidi.collegesearch.backCode.model.School;
+import com.guidi.collegesearch.backCode.util.AccountHandler;
 import com.guidi.collegesearch.backCode.util.Degree;
 import com.guidi.collegesearch.backCode.util.Region;
 import com.guidi.collegesearch.backCode.util.State;
@@ -22,7 +25,8 @@ import com.guidi.collegesearch.main.R;
 
 import java.util.ArrayList;
 
-import static com.guidi.collegesearch.frontEnd.ui.result_view.ResultsHandler.getSchoolSearchResults;
+import static com.guidi.collegesearch.backCode.model.School.schoolInfoToString;
+import static com.guidi.collegesearch.backCode.util.ResultsHandler.getSchoolNamesSearchResults;
 
 public class ResultsFragment extends Fragment {
     private ResultsViewModel resultsViewModel;
@@ -34,7 +38,7 @@ public class ResultsFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_results, container, false);
         final RecyclerView searchCyclerView = (RecyclerView)root.findViewById(R.id.search_cycler_view);
         searchCyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        SchoolAdapter adapter = new SchoolAdapter(getSchoolSearchResults());
+        SchoolAdapter adapter = new SchoolAdapter(getSchoolNamesSearchResults());
         searchCyclerView.setAdapter(adapter);
         return root;
     }
@@ -92,38 +96,9 @@ public class ResultsFragment extends Fragment {
         }
 
     }
-    public static String schoolInfoToString(School cSch){
-        String s = "Unique ID: " + cSch.getId()+"\n"+
-                "State: " + (State.valueOfAbbreviation(cSch.getStateAbr())).toString()+"\n"+
-                "City: " + cSch.getCity()+"\n"+
-                "Zip: " + cSch.getZip()+"\n"+
-                "Region: " + Region.getRegionS(cSch.getRegID())+"\n";
-        if(cSch.getAdmRate() != 0) {
-            s += "Admissions Rate: " + ((int) (cSch.getAdmRate() * 100)) + "%\n";
-        }else{
-            s += "Admissions Rate: " + (100) + "%\n";
-        }
-        s +=    "Cost In-State: $" + cSch.getCostIn()+"\n"+
-                "Cost Out-of-State: $" + cSch.getCostOut()+"\n"+
-                "Primary Degree Awarded: " + Degree.getdNameByKey(cSch.getMainDegree())+"\n"+
-                "Maximum Degree Awarded: " + Degree.getdNameByKey(cSch.getMaxDegree())+"\n";
-        if(cSch.getSchoolURL().equals("null")){
-               s+= "School URL is not provided sorry :("+"\n";
-        }else {
-            s += "School URL: " + cSch.getSchoolURL() + "\n";
-        }
-        if(cSch.getStudentSize() == 0){
-            s += "Student Size is not provided sorry :("+"\n";
-        }else {
-            s += "Student Size: " + cSch.getStudentSize() + "\n";
-        }
-        if((cSch.getSatM25() != 0) && (cSch.getSatM75() != 0))
-                s += "Math SAT Scores: \n75th: " + cSch.getSatM75() + "\t25th: " + cSch.getSatM25() +"\n";
-        if((cSch.getSatR25() != 0) && (cSch.getSatR75() != 0))
-            s += "Reading SAT Scores: \n75th: " + cSch.getSatR75() + "\t25th: " + cSch.getSatR25() +"\n";
-        if((cSch.getSatW25() != 0) && (cSch.getSatW75() != 0))
-            s += "Writing SAT Scores: \n75th: " + cSch.getSatW75() + "\t25th: " + cSch.getSatW25() +"\n";
-        return s;
-    }
+
+
+
+
 
 }

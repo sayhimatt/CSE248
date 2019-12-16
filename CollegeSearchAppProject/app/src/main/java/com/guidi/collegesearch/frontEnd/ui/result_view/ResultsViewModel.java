@@ -16,7 +16,7 @@ public class ResultsViewModel extends ViewModel {
         mText = new MutableLiveData<>();
         mText.setValue("This is dashboard fragment");
         numCount = new MutableLiveData<Integer>();
-        numCount.setValue(myCount);
+
     }
     public LiveData<Integer> getNumCount(){
         return numCount;

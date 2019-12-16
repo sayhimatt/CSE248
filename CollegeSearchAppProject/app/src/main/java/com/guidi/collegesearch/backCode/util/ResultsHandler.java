@@ -1,6 +1,4 @@
-package com.guidi.collegesearch.frontEnd.ui.result_view;
-
-import android.util.Log;
+package com.guidi.collegesearch.backCode.util;
 
 import androidx.annotation.NonNull;
 
@@ -14,24 +12,44 @@ import com.guidi.collegesearch.backCode.model.School;
 import java.util.ArrayList;
 
 public class ResultsHandler {
-    public static ArrayList<School> schoolSearchResults = new ArrayList<School>();
+    public static ArrayList<School> schoolNamesSearchResults = new ArrayList<School>();
+    public static boolean nameSDone;
     public ResultsHandler(){
 
     }
-    public void newSearch(String nameOID){
-        schoolSearchResults.clear();
+    public void DegreeSchoolSearch(ArrayList<Integer> nums){
+        ArrayList<School> newList = new ArrayList<School>();
+        for(int i = 0; i < schoolNamesSearchResults.size(); i++){
+            for(int j = 0; j < nums.size(); j++){
+                if((schoolNamesSearchResults.get(i).getMaxDegree() == nums.get(j)) ||
+                        (schoolNamesSearchResults.get(i).getMainDegree() == nums.get(j))){
+                    newList.add(schoolNamesSearchResults.get(i));
+                    j = nums.size();
+                }
+            }
+        }
+        if(nums.size() > 0) {
+            schoolNamesSearchResults = newList;
+        }
+    }
+    public void NameSchoolSearch(String nameOID){
+        nameSDone = false;
+        schoolNamesSearchResults.clear();
         Query q = FirebaseDatabase.getInstance().getReference("schools").orderByChild("collegeName").startAt(nameOID).endAt(nameOID+"\uf8ff");
         q.addListenerForSingleValueEvent(valueEventListener);
+
 
     }
     private ValueEventListener valueEventListener = new ValueEventListener(){
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
             if(dataSnapshot.exists()){
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    schoolSearchResults.add(snapToSchool(snapshot));
+                    schoolNamesSearchResults.add(snapToSchool(snapshot));
                 }
             }
+            nameSDone = true;
         }
 
         @Override
@@ -63,7 +81,7 @@ public class ResultsHandler {
 
         return newSchoolToEnter;
     }
-    public static ArrayList<School> getSchoolSearchResults(){
-        return schoolSearchResults;
+    public static ArrayList<School> getSchoolNamesSearchResults(){
+        return schoolNamesSearchResults;
     }
 }

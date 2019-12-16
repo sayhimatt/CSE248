@@ -1,5 +1,6 @@
 package com.guidi.collegesearch.main;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,7 +30,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.guidi.collegesearch.backCode.model.School;
 import com.guidi.collegesearch.backCode.util.OnClickAssigner;
-import com.guidi.collegesearch.frontEnd.ui.account_view.AccountHandler;
+import com.guidi.collegesearch.backCode.util.AccountHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,8 +45,9 @@ public class MainActivity extends AppCompatActivity {
     private static int maxPageN;
     private static int pageN;
     public static ArrayList <School> whatIGot;
+    public static ArrayList <String> schoolNameList;
     private static int numOfSchoolsFound;
-    private FirebaseAuth mAuth;
+    private static FirebaseAuth mAuth;
     private FirebaseDatabase userDatabase;
     private RequestQueue testQueue;
     private RequestQueue betterQueue;
@@ -67,9 +69,10 @@ public class MainActivity extends AppCompatActivity {
         if (mAuth.getCurrentUser() != null) {
             //Log.d("whoAmISignedInAs?", mAuth.getCurrentUser().getEmail());
             AccountHandler.loadAccount();
-           loadMainFragments();
+            fillSchoolNameList();
+            loadMainFragments();
         } else {
-            backToLogin();
+            backToLogin(this);
         }
 
     }
@@ -117,12 +120,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean goToMainActivity(View v) {
+        AccountHandler.loadAccount();
+        fillSchoolNameList();
         loadMainFragments();
         return true;
     }
-    public boolean backToLogin() {
-        setContentView(R.layout.activity_login);
-        OnClickAssigner.setOnClickAssigner(findViewById(R.id.main_login_linear_layout), mAuth, this);
+    public static boolean backToLogin(Activity m) {
+        FirebaseAuth.getInstance().signOut();
+        m.setContentView(R.layout.activity_login);
+        OnClickAssigner.setOnClickAssigner(m.findViewById(R.id.main_login_linear_layout), mAuth, m);
         loginHandler();
         return true;
     }
@@ -138,7 +144,6 @@ public class MainActivity extends AppCompatActivity {
         Button rButton = findViewById(R.id.register_account_button);
         OnClickAssigner.setOnClickAssigner(findViewById(R.id.root_registration_view), mAuth, this);
         registrationHandler();
-
         return true;
     }
 
@@ -257,6 +262,27 @@ public class MainActivity extends AppCompatActivity {
                 + "&sort=school.name";
         pageN++;
         return qForm;
+    }
+
+    private void fillSchoolNameList(){
+        Query q = FirebaseDatabase.getInstance().getReference("schools").orderByChild("collegeName");
+        schoolNameList = new ArrayList<String>();
+        ValueEventListener valueEventListener = new ValueEventListener(){
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        //schoolNameList.add(snapshot.child("collegeName").getValue().toString());
+                        schoolNameList.add(snapshot.child("collegeName").getValue().toString());
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        q.addListenerForSingleValueEvent(valueEventListener);
     }
 
 
