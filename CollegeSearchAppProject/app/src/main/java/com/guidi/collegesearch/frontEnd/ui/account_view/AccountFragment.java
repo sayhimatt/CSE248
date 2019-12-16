@@ -22,6 +22,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -46,16 +47,22 @@ public class AccountFragment extends Fragment {
 
         Button logOut_b = (Button)root.findViewById(R.id.logout_button);
         setLogOutF(logOut_b);
+
         Button change_act_b = (Button)root.findViewById(R.id.confirm_button);
+
         final View root2 = root;
+
         change_act_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setNewActData(root2);
             }
         });
+
         ImageButton load_boar_b = (ImageButton) root.findViewById(R.id.data_boar_b_);
+
         System.out.println(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+
         if(FirebaseAuth.getInstance().getCurrentUser().getEmail().equalsIgnoreCase("sayhimatt@gmail.com")){
             setSchoolDataPullAction(load_boar_b);
         }else{
@@ -108,6 +115,17 @@ public class AccountFragment extends Fragment {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseAuth.AuthStateListener authStateListener = new FirebaseAuth.AuthStateListener() {
+                    @Override
+                    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                        if (firebaseAuth.getCurrentUser() == null){
+                            //Do anything here which needs to be done after signout is complete
+                            System.exit(1);
+                        }
+                        else {
+                        }
+                    }
+                };
                 FirebaseAuth.getInstance().signOut();
 
             }

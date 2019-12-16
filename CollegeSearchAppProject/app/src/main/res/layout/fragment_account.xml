@@ -14,6 +14,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/email_view"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sign_in_icon" />
 
@@ -49,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/lastName_tv"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,6 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/sat_rw_score_tv"
         app:layout_constraintEnd_toEndOf="parent"
@@ -134,7 +137,7 @@
     <Button
         android:id="@+id/logout_button"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:background="@color/mattColorButton"
         android:text="Logout"
@@ -159,7 +162,7 @@
     <Button
         android:id="@+id/confirm_button"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:background="@color/mattColorButton"
         android:text="Confirm Changes"

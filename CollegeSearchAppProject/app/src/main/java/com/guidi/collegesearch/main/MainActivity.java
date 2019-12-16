@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
     public static boolean backToLogin(Activity m) {
-        FirebaseAuth.getInstance().signOut();
         m.setContentView(R.layout.activity_login);
         OnClickAssigner.setOnClickAssigner(m.findViewById(R.id.main_login_linear_layout), mAuth, m);
         loginHandler();
