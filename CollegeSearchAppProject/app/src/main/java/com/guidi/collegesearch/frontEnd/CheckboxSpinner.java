@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatSpinner;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -66,7 +67,16 @@ public class CheckboxSpinner extends AppCompatSpinner implements
         builder.show();
         return true;
     }
+    public ArrayList<String> getSelectedItems(){
+        ArrayList<String> sItemsList = new ArrayList<>();
 
+        for(int i = 0; i < checked.length; i++){
+            if(checked[i] == true){
+                sItemsList.add(listitems.get(i));
+            }
+        }
+        return sItemsList;
+    }
     public void setItems(List<String> items) {
         this.listitems = items;
 

@@ -75,6 +75,10 @@ public enum State {
         return nameList;
     }
 
+    public String getName() {
+        return name;
+    }
+
     /**
      * Gets the enum constant with the specified abbreviation.
      *
@@ -98,6 +102,7 @@ public enum State {
             return State.NO_STATE;
         }
     }
+
 
     /**
      * Returns the state's abbreviation.

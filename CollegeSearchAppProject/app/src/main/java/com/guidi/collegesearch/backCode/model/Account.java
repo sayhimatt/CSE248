@@ -22,8 +22,8 @@ public class Account {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.satMScore = satMScore;
-        this.satWScore = satWScore;
+        setSatMScore(satMScore);
+        setSatWScore(satWScore);
     }
 
     public String getUsername() {

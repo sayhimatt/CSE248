@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/account_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +14,6 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/email_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sign_in_icon" />
 
@@ -139,9 +139,22 @@
         android:background="@color/mattColorButton"
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/confirm_button"
+        app:layout_constraintEnd_toStartOf="@id/data_boar_b_"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sat_m_score_tv" />
+
+    <ImageButton
+        android:id="@+id/data_boar_b_"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#00FFFFFF"
+        android:clickable="false"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/confirm_button"
+        app:layout_constraintStart_toEndOf="@id/logout_button"
+        app:layout_constraintTop_toBottomOf="@id/sat_m_score_tv"
+        app:srcCompat="@drawable/loading_boarf" />
 
     <Button
         android:id="@+id/confirm_button"
@@ -152,6 +165,6 @@
         android:text="Confirm Changes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/logout_button"
+        app:layout_constraintStart_toEndOf="@id/data_boar_b_"
         app:layout_constraintTop_toBottomOf="@id/sat_m_score_tv" />
 </androidx.constraintlayout.widget.ConstraintLayout>

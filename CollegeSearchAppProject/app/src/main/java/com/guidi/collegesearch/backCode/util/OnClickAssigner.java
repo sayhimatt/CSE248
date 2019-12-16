@@ -19,18 +19,24 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.guidi.collegesearch.main.MainActivity;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.guidi.collegesearch.main.R;
 import com.guidi.collegesearch.frontEnd.mToast;
 import com.guidi.collegesearch.backCode.model.Account;
 import com.guidi.collegesearch.backCode.model.Username;
 
+import java.util.ArrayList;
+
 public final class OnClickAssigner {
     private static View rootV;
     private static FirebaseAuth mAuth;
     private static Activity mainActivity;
+    public static ArrayList <String> schoolNameList;
 
     public static void setOnClickAssigner(View overView, FirebaseAuth firebaseAuthentication, Activity mActivity) {
         rootV = overView;
@@ -144,6 +150,7 @@ public final class OnClickAssigner {
     }
     public static void loadIt(){
         mainActivity.setContentView(R.layout.activity_general);
+        fillSchoolNameList();
         BottomNavigationView navView = mainActivity.findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -163,11 +170,30 @@ public final class OnClickAssigner {
     }
     public static boolean backToLogin() {
         FirebaseAuth.getInstance().signOut();
-
         mainActivity.setContentView(R.layout.activity_login);
         OnClickAssigner.setOnClickAssigner(mainActivity.findViewById(R.id.main_login_linear_layout), mAuth, mainActivity);
         loginHandler();
         return true;
+    }
+    public static void fillSchoolNameList(){
+        Query q = FirebaseDatabase.getInstance().getReference("schools").orderByChild("collegeName");
+        schoolNameList = new ArrayList<String>();
+        ValueEventListener valueEventListener = new ValueEventListener(){
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        //schoolNameList.add(snapshot.child("collegeName").getValue().toString());
+                        schoolNameList.add(snapshot.child("collegeName").getValue().toString());
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        q.addListenerForSingleValueEvent(valueEventListener);
     }
 
 }

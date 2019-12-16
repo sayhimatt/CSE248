@@ -71,7 +71,7 @@ The rest are all SAT scores which brings us to the next part!
 ╔═╗┌─┐┌─┐┌─┐┌─┐┌┬┐┌─┐┌┐┌┌─┐┌─┐  ╔═╗┬─┐┌─┐┌┐ ┌─┐┌┐ ┬┬  ┬┌┬┐┬ ┬
 ╠═╣│  │  ├┤ ├─┘ │ ├─┤││││  ├┤   ╠═╝├┬┘│ │├┴┐├─┤├┴┐││  │ │ └┬┘
 ╩ ╩└─┘└─┘└─┘┴   ┴ ┴ ┴┘└┘└─┘└─┘  ╩  ┴└─└─┘└─┘┴ ┴└─┘┴┴─┘┴ ┴  ┴ 
-Previously stated was how the SAT scores are engrained into the Alert for
+Previously stated was how the SAT scores are engraved into the Alert for
 each School's info. The user's own info is also injected for them to compare.
 Now the info taken from the user is for the new SAT and a lot of the college info is old.
 So to "convert" the scores I took the Math score as is and set writing and english to their 

@@ -1,9 +1,17 @@
 package com.guidi.collegesearch.backCode.util;
 
+import android.content.Context;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -13,7 +21,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.guidi.collegesearch.backCode.model.Account;
+import com.guidi.collegesearch.backCode.model.School;
 import com.guidi.collegesearch.backCode.model.Username;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class AccountHandler {
     private static String fName, lName;
@@ -45,6 +58,9 @@ public class AccountHandler {
     public static Account getCurrentAccount(){
         return currentAccount;
     }
+    public static void setCurrentAccount(Account a){
+        currentAccount = a;
+    }
     private static ValueEventListener valueEventListener = new ValueEventListener(){
 
         @Override
@@ -59,5 +75,12 @@ public class AccountHandler {
 
         }
     };
+    public static void refreshSchoolDatabase(Context context){
+        SchoolDataPuller dp = new SchoolDataPuller();
+        dp.reformTheDatabase(context);
+    }
+
+
+
 
 }

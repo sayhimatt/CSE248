@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class ResultsHandler {
     public static ArrayList<School> schoolNamesSearchResults = new ArrayList<School>();
-    public static boolean nameSDone;
+    public static boolean nameSDone, degreeSisDone, stateSisDone;
     public ResultsHandler(){
 
     }
@@ -28,17 +28,34 @@ public class ResultsHandler {
                 }
             }
         }
-        if(nums.size() > 0) {
-            schoolNamesSearchResults = newList;
-        }
+        schoolNamesSearchResults = newList;
+        degreeSisDone = true;
     }
     public void NameSchoolSearch(String nameOID){
         nameSDone = false;
         schoolNamesSearchResults.clear();
-        Query q = FirebaseDatabase.getInstance().getReference("schools").orderByChild("collegeName").startAt(nameOID).endAt(nameOID+"\uf8ff");
+        Query q;
+        if(!nameOID.isEmpty()) {
+            q = FirebaseDatabase.getInstance().getReference("schools").orderByChild("collegeName").startAt(nameOID).endAt(nameOID + "\uf8ff");
+        }else{
+            q = FirebaseDatabase.getInstance().getReference("schools").orderByChild("collegeName");
+        }
         q.addListenerForSingleValueEvent(valueEventListener);
-
-
+    }
+    public void StateSchoolSearch(ArrayList<String> statesSelected){
+        ArrayList<School> newList = new ArrayList<School>();
+        for(int i = 0; i < schoolNamesSearchResults.size(); i++){
+            for(int j = 0; j < statesSelected.size(); j++){
+                String s1 = State.valueOfAbbreviation(schoolNamesSearchResults.get(i).getStateAbr()).getName();
+                String s2 = statesSelected.get(j);
+                if(s1.equalsIgnoreCase(s2)){
+                    newList.add(schoolNamesSearchResults.get(i));
+                    j = statesSelected.size();
+                }
+            }
+        }
+        schoolNamesSearchResults = newList;
+        stateSisDone = true;
     }
     private ValueEventListener valueEventListener = new ValueEventListener(){
         @Override

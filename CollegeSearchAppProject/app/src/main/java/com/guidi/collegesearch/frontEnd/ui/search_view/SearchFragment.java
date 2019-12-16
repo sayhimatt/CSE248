@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.guidi.collegesearch.backCode.util.OnClickAssigner;
 import com.guidi.collegesearch.backCode.util.ResultsHandler;
 import com.guidi.collegesearch.main.MainActivity;
 import com.guidi.collegesearch.main.R;
@@ -68,9 +69,9 @@ public class SearchFragment extends Fragment {
                         try {
                             synchronized (this) {
                                 ResultsHandler a = new ResultsHandler();
-                                a.NameSchoolSearch(nameOIDET.getText().toString());
-                                while(!a.nameSDone)
-                                {
+                                String nToSearch = nameOIDET.getText().toString().trim();
+                                a.NameSchoolSearch(nToSearch);
+                                while (!a.nameSDone) {
                                     Thread.sleep(100);
                                 }
                                 ArrayList<Integer> degL = new ArrayList<Integer>();
@@ -90,7 +91,22 @@ public class SearchFragment extends Fragment {
                                 if(c3.isChecked()){
                                     degL.add(4);
                                 }
-                                a.DegreeSchoolSearch(degL);
+                                if(degL.size() > 0) {
+                                    a.degreeSisDone = false;
+                                    a.DegreeSchoolSearch(degL);
+                                    while (!a.degreeSisDone) {
+                                        Thread.sleep(100);
+                                    }
+                                }
+                                CheckboxSpinner stateSpinner = (CheckboxSpinner)view.findViewById(R.id.select_state_spinner);
+                                ArrayList<String> selectedStates = stateSpinner.getSelectedItems();
+                                if(selectedStates.size() > 0){
+                                    a.stateSisDone = false;
+                                    a.StateSchoolSearch(selectedStates);
+                                    while (!a.stateSisDone) {
+                                        Thread.sleep(100);
+                                    }
+                                }
 
                             }
                         } catch (Exception e) {
@@ -109,7 +125,7 @@ public class SearchFragment extends Fragment {
 
 
         AutoCompleteTextView collegeSearchName = root.findViewById(R.id.school_name_ac);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(root.getContext(), android.R.layout.simple_list_item_1, MainActivity.schoolNameList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(root.getContext(), android.R.layout.simple_list_item_1, OnClickAssigner.schoolNameList);
         collegeSearchName.setAdapter(adapter);
     }
 
